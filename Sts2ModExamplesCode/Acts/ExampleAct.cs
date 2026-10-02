@@ -1,12 +1,15 @@
 using Godot;
+using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Random;
+using MegaCrit.Sts2.Core.Unlocks;
 
 namespace Sts2ModExamples.Acts;
 
 /// <summary>
 /// 示例章节（第 2 章替代品）。对照 skill：act/act-core.md。
-/// 真实 API：ActModel 12 个抽象成员（Index/IsDefault/Map*/BgMusicOptions/MusicBankPaths/
-/// AmbientSfx/BaseNumberOfRooms/Chest*/BossDiscoveryOrder/AllAncients/GenerateAllEncounters）。
+/// 真实 API：ActModel 20 个抽象成员（skill 文档漏了 5 个：AllEvents/IsUnlocked/
+/// GetUnlockedAncients/ApplyActDiscoveryOrderModifications/GetMapPointTypes）。
 /// </summary>
 public class ExampleAct : ActModel
 {
@@ -32,6 +35,15 @@ public class ExampleAct : ActModel
     protected override int BaseNumberOfRooms => 15;
 
     public override IEnumerable<AncientEventModel> AllAncients => [];
+    public override IEnumerable<EventModel> AllEvents => [];
 
     public override IEnumerable<EncounterModel> GenerateAllEncounters() => [];
+
+    public override bool IsUnlocked(UnlockState unlockState) => true;
+    public override IEnumerable<AncientEventModel> GetUnlockedAncients(UnlockState state) =>
+        AllAncients;
+    protected override void ApplyActDiscoveryOrderModifications(UnlockState unlockState) { }
+
+    public override MapPointTypeCounts GetMapPointTypes(Rng mapRng) =>
+        new MapPointTypeCounts();
 }
