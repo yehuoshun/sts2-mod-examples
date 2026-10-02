@@ -4,6 +4,8 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Saves.Runs;
 
+using Sts2ModExamples.Core;
+
 namespace Sts2ModExamples.Rewards;
 
 /// <summary>
