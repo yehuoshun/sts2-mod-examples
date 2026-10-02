@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Saves.Runs;
+using Sts2ModExamples.Core;
 
 namespace Sts2ModExamples.Rewards;
 
@@ -16,7 +17,7 @@ namespace Sts2ModExamples.Rewards;
 /// </summary>
 public class TestRandomUpgradeReward : Reward
 {
-    [RewardType] public static RewardType RandomUpgrade;
+    [EnumInjector.RewardType] public static RewardType RandomUpgrade;
 
     public TestRandomUpgradeReward(Player player) : base(player) { }
 
