@@ -1,3 +1,4 @@
+using Godot;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 
@@ -11,8 +12,14 @@ namespace Sts2ModExamples.Energy;
 /// </summary>
 public class ExampleEnergyPool : CardPoolModel, ICustomEnergyIcon
 {
+    public override string Title => "能源池";
     public override string EnergyColorName =>
         ModEnergyIconCodec.EncodePoolId(Id);
+    public override string CardFrameMaterialPath => "";
+    public override Color DeckEntryCardColor => new("FFD700");
+    public override bool IsColorless => false;
+
+    protected override CardModel[] GenerateAllCards() => [];
 
     public string? BigIconPath =>
         "res://Sts2ModExamples/images/energy/energy_big.png";

@@ -9,10 +9,12 @@ namespace Sts2ModExamples.Resources;
 /// 对照 skill：resource/resource-core.md + resource-lifecycle.md。
 /// ⚠️ 全部为自研基类设计（原生 AbstractModel 无这些虚方法），注册见 lifecycle：ModelDb.Inject + Patch 钩入。
 /// </summary>
-public class ExampleResource : AbstractModel
+public abstract class ExampleResource : AbstractModel
 {
     protected int _amount;
     public int Amount => _amount;
+
+    public override bool ShouldReceiveCombatHooks => false;   // AbstractModel 抽象成员
 
     public virtual int MaxAmount => 999;
     public virtual bool ResetEachTurn => true;
