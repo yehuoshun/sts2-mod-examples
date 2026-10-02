@@ -54,7 +54,7 @@ public static class ModConfigStorage
         foreach (var prop in typeof(ExampleModConfig).GetProperties())
         {
             if (prop.GetCustomAttribute<ConfigIgnoreAttribute>() != null) continue;
-            cf.SetValue(SectionName, prop.Name, prop.GetValue(null));
+            cf.SetValue(SectionName, prop.Name, Variant.From(prop.GetValue(null)));
         }
         cf.Save(ConfigPath);
     }
@@ -67,8 +67,8 @@ public static class ModConfigStorage
         foreach (var prop in typeof(ExampleModConfig).GetProperties())
         {
             if (prop.GetCustomAttribute<ConfigIgnoreAttribute>() != null) continue;
-            var value = cf.GetValue(SectionName, prop.Name, prop.GetValue(null));
-            prop.SetValue(null, Convert.ChangeType(value, prop.PropertyType));
+            var value = cf.GetValue(SectionName, prop.Name, Variant.From(prop.GetValue(null)));
+            prop.SetValue(null, Convert.ChangeType(value.Obj, prop.PropertyType));
         }
     }
 }
