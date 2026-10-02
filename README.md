@@ -34,9 +34,15 @@ Slay the Spire 2 **纯原生** Mod 示例仓库 — 把 [slay-the-spire-2-mod-sk
 3. 构建后自动部署到游戏 `mods/Sts2ModExamples/`；启动游戏验证
 4. 资源包（`.pck`）：有 Godot 资源后 `dotnet publish` 导出，或用 PckPacker
 
-> ⚠️ GitHub Actions 无法编译本仓库：`sts2.dll` 只能从游戏安装目录引用（版权原因不能上传）。CI 只做静态检查（见 `scripts/check-api.py`）。
+> ✅ CI 已支持真编译：`sts2.dll`/`0Harmony.dll` 从 yehuoshun/STS2-ShunMod 的 deps release（tag=游戏版本）拉取，`dotnet build -p:Sts2DataDir` 完整编译。每次 push 自动跑：编译 + ModAnalyzers + API 白名单 + 本地化 JSON 校验。
 
-## 静态自检
+## 测试流程
+
+1. **改代码/文档后 push** → GitHub Actions 自动跑 `ci.yml`
+2. 观察 Actions 结果：`dotnet build` 报错 → 按错误修示例（或修 skill 文档）→ 重推
+3. **本地快速自检**：`python3 scripts/check-api.py`（API 白名单，防幻觉 API）
+4. **运行时验证**（CI 替代不了）：把 `mods/Sts2ModExamples/` 装进游戏，主菜单应有「Mod Settings」按钮，战斗内能抽到示例无色卡；报错看 `%AppData%\SlayTheSpire2\logs\`
+5. 编译通过的示例是 skill 文档正确性的裁判：**文档改动的 API 必须在示例仓库有对应代码**（见 skill LEARN.md 测试流程）
 
 ```bash
 python3 scripts/check-api.py   # 扫描代码中的 API 调用，对照 sts2-res 白名单
