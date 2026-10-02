@@ -1,0 +1,89 @@
+name: CI Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  DEPS_VERSION: "0.107.1"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup .NET 9.0
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: nuget-${{ runner.os }}-${{ hashFiles('**/*.csproj', '**/*.props') }}
+          restore-keys: |
+            nuget-${{ runner.os }}-
+
+      - name: Cache game references
+        id: cache-deps
+        uses: actions/cache@v4
+        with:
+          path: deps
+          key: deps-${{ env.DEPS_VERSION }}
+
+      # sts2.dll 从 yehuoshun/STS2-ShunMod 的 deps release 拉取（public，同款方案：
+      # 把游戏 DLL 挂 GitHub Release，CI 下载后 -p:Sts2DataDir 指向它完成编译）
+      - name: Download game references
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p deps
+          BASE="https://github.com/yehuoshun/STS2-ShunMod/releases/download/${{ env.DEPS_VERSION }}"
+          curl -sL --retry 3 "${BASE}/sts2.dll" -o deps/sts2.dll
+          curl -sL --retry 3 "${BASE}/0Harmony.dll" -o deps/0Harmony.dll
+          ls -la deps/
+
+      - name: Check deps
+        run: |
+          if [ ! -f deps/sts2.dll ]; then
+            echo "❌ sts2.dll 下载失败（上游 release ${{ env.DEPS_VERSION }} 缺失？）"
+            exit 1
+          fi
+
+      - name: Restore
+        run: dotnet restore Sts2ModExamples.csproj
+
+      - name: Build (compile check)
+        run: |
+          dotnet build Sts2ModExamples.csproj \
+            -c Release \
+            -p:Sts2DataDir="$(realpath deps)" \
+            --no-restore
+
+      - name: Static API check
+        run: python3 scripts/check-api.py
+
+      - name: Verify localization JSON
+        run: |
+          python3 - <<'EOF'
+          import json, glob
+          for f in glob.glob('Sts2ModExamples/localization/*/*.json'):
+              json.load(open(f, encoding='utf-8'))
+          print("✅ 全部本地化 JSON 合法")
+          EOF
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Sts2ModExamples
+          path: |
+            bin/Release/net9.0/Sts2ModExamples.dll
+            .godot/mono/temp/bin/Release/Sts2ModExamples.dll
+            Sts2ModExamples.json
+          if-no-files-found: warn
