@@ -1,0 +1,5 @@
+{
+  "EXAMPLE_MONSTER.name": "Example Grunt",
+  "EXAMPLE_MONSTER.moves.ATTACK_MOVE.title": "Attack",
+  "EXAMPLE_MONSTER.moves.DEFEND_MOVE.title": "Defend"
+}

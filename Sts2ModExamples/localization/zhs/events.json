@@ -1,0 +1,6 @@
+{
+  "EXAMPLE_EVENT.title": "示例事件",
+  "EXAMPLE_EVENT.pages.INITIAL.description": "一位商人向你走来。\n\"拿点金币走吧。\"",
+  "EXAMPLE_EVENT.pages.INITIAL.options.TAKE_GOLD.title": "拿走50金币",
+  "EXAMPLE_EVENT.pages.INITIAL.options.TAKE_GOLD.description": "获得[gold]50[/gold]金币。"
+}

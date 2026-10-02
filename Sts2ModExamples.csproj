@@ -1,0 +1,50 @@
+<Project Sdk="Godot.NET.Sdk/4.5.1" InitialTargets="CheckDependencyPaths">
+    <Import Project=".\Sts2PathDiscovery.props"/>
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <AssemblyName>Sts2ModExamples</AssemblyName>
+        <RootNamespace>Sts2ModExamples</RootNamespace>
+        <ImplicitUsings>true</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <DefaultItemExcludes>packages/**</DefaultItemExcludes>
+        <AppOutputBase>$(MSBuildProjectDirectory)\</AppOutputBase>
+        <PathMap>$(AppOutputBase)=.\</PathMap>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+        <NoWarn>$(NoWarn);MSB3270;CS0436;CS9057;STS001;STS003</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup Condition="Exists('$(Sts2DataDir)')">
+        <Reference Include="0Harmony">
+            <HintPath>$(Sts2DataDir)/0Harmony.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="sts2">
+            <HintPath>$(Sts2DataDir)/sts2.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+
+    <!-- 可选构建期工具（非运行时依赖）：
+         官方静态分析器 ModAnalyzers + Publicizer（publicize sts2 非 virtual 成员） -->
+    <ItemGroup Condition="'$(PublicizeSts)' != 'false'">
+        <Publicize Include="sts2" IncludeVirtualMembers="false" IncludeCompilerGeneratedMembers="false" />
+        <PackageReference Include="Krafs.Publicizer" Version="2.3.0" PrivateAssets="All" />
+        <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*" />
+    </ItemGroup>
+
+    <Target Name="CheckDependencyPaths">
+        <Error Text="Slay the Spire 2 data not found at '$(Sts2DataDir)'. 游戏未安装或 Sts2PathDiscovery.props 未命中，可用 -p:Sts2DataDir= 覆盖。"
+               Condition="'$(Sts2DataDir)' == '' or !Exists('$(Sts2DataDir)')" />
+    </Target>
+
+    <!-- 构建后自动部署到游戏 mods 目录 -->
+    <Target Name="CopyToModsFolderOnBuild" AfterTargets="Build">
+        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
+        <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" Condition="Exists('$(TargetDir)$(TargetName).pdb')" />
+        <Copy SourceFiles="$(MSBuildProjectDirectory)/Sts2ModExamples.json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
+        <Copy SourceFiles="$(MSBuildProjectDirectory)/Sts2ModExamples.pck" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" Condition="Exists('$(MSBuildProjectDirectory)/Sts2ModExamples.pck')" />
+        <Message Text="已部署到 $(ModsPath)$(MSBuildProjectName)/" Importance="high" />
+    </Target>
+</Project>

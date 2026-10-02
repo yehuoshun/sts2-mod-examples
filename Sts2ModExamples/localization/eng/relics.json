@@ -1,0 +1,5 @@
+{
+  "EXAMPLE_RELIC.title": "Example Carrot",
+  "EXAMPLE_RELIC.description": "On combat start, gain {PlatingPower} [gold]Plating[/gold].",
+  "EXAMPLE_RELIC.flavor": "Pure-native example relic."
+}

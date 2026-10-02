@@ -1,0 +1,11 @@
+{
+  "id": "Sts2ModExamples",
+  "name": "Sts2 示例 Mod",
+  "author": "yehuoshun",
+  "description": "纯原生 Mod 开发示例：覆盖卡牌/遗物/能力/药水/附魔/事件/先古/怪物/遭遇/球/角色/修改器/休息站/多人消息（配套 slay-the-spire-2-mod-skill 文档）",
+  "version": "v0.1.0",
+  "min_game_version": "0.107.1",
+  "has_pck": true,
+  "has_dll": true,
+  "affects_gameplay": true
+}

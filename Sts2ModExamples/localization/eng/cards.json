@@ -1,0 +1,8 @@
+{
+  "EXAMPLE_STRIKE.title": "Example Strike",
+  "EXAMPLE_STRIKE.description": "Deal {Damage:diff()} damage.",
+  "EXAMPLE_DEFEND.title": "Example Defend",
+  "EXAMPLE_DEFEND.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "EXAMPLE_CALCULATED_CARD.title": "Example Flame",
+  "EXAMPLE_CALCULATED_CARD.description": "Deal {CalculatedDamage:diff()} damage.\n+{ExtraDamage:diff()} damage for each enemy in combat."
+}

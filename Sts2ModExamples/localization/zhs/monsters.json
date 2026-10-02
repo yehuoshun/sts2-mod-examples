@@ -1,0 +1,5 @@
+{
+  "EXAMPLE_MONSTER.name": "示例小怪",
+  "EXAMPLE_MONSTER.moves.ATTACK_MOVE.title": "攻击",
+  "EXAMPLE_MONSTER.moves.DEFEND_MOVE.title": "防御"
+}

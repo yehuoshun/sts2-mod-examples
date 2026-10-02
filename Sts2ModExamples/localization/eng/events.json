@@ -1,0 +1,6 @@
+{
+  "EXAMPLE_EVENT.title": "Example Event",
+  "EXAMPLE_EVENT.pages.INITIAL.description": "A merchant approaches you.\n\"Take some gold and go.\"",
+  "EXAMPLE_EVENT.pages.INITIAL.options.TAKE_GOLD.title": "Take 50 Gold",
+  "EXAMPLE_EVENT.pages.INITIAL.options.TAKE_GOLD.description": "Gain [gold]50[/gold] gold."
+}

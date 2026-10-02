@@ -1,0 +1,8 @@
+{
+  "EXAMPLE_BUFF_POWER.title": "示例增益",
+  "EXAMPLE_BUFF_POWER.description": "每回合开始获得1层[gold]力量[/gold]。",
+  "EXAMPLE_BUFF_POWER.smartDescription": "每回合开始获得{ExampleBuffPower}层[gold]力量[/gold]。",
+  "EXAMPLE_TEMP_POWER.title": "示例临时",
+  "EXAMPLE_TEMP_POWER.description": "回合结束时减少1层。",
+  "EXAMPLE_TEMP_POWER.smartDescription": "回合结束时减少1层。剩余{Amount}层。"
+}
