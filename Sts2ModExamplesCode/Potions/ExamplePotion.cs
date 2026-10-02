@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Models.PotionPools;
 using Sts2ModExamples.Core;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
 namespace Sts2ModExamples.Potions;
 

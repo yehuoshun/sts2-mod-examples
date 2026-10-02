@@ -1,6 +1,7 @@
 using MegaCrit.Sts2.Core.Entities.Ancients;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Events;
 
 namespace Sts2ModExamples.Ancients;
 
@@ -29,6 +30,9 @@ public class ExampleAncient : AncientEventModel
         {
             new EventOption(this, OnBless, "EXAMPLE_ANCIENT.options.BLESS"),
         };
+
+    protected override IReadOnlyList<EventOption> GenerateInitialOptions() =>
+        AllPossibleOptions.ToList();
 
     private async Task OnBless()
     {

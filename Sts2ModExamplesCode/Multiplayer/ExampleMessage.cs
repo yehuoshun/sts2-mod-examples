@@ -18,6 +18,7 @@ public struct ExampleMessage : INetMessage, IPacketSerializable, IRunLocationTar
 
     public bool ShouldBroadcast => false;                 // 定向发送
     public NetTransferMode Mode => NetTransferMode.Reliable;
+    public LogLevel LogLevel => LogLevel.Debug;           // INetMessage 接口必需
     public bool ShouldBuffer => false;
 
     RunLocation IRunLocationTargetedMessage.Location => Location;

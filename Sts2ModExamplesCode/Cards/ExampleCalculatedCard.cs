@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 using Sts2ModExamples.Core;
 using MegaCrit.Sts2.Core.ValueProps;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
 namespace Sts2ModExamples.Cards;
 

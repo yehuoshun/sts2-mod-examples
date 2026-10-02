@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 using Sts2ModExamples.Core;
 using MegaCrit.Sts2.Core.ValueProps;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
 namespace Sts2ModExamples.Cards;
 
@@ -38,7 +39,7 @@ public class ExampleDefend : CardModel
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
     }
 
-    public override void OnUpgrade()
+    protected override void OnUpgrade()
     {
         base.OnUpgrade();
         DynamicVars.Block.UpgradeValueBy(2m);   // 升级 +2 格挡
