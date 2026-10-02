@@ -1,4 +1,4 @@
-<Project Sdk="Godot.NET.Sdk/4.5.1" InitialTargets="CheckDependencyPaths">
+<Project Sdk="Godot.NET.Sdk/4.5.1">
     <Import Project=".\Sts2PathDiscovery.props"/>
     <PropertyGroup>
         <TargetFramework>net9.0</TargetFramework>
@@ -34,9 +34,9 @@
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*" />
     </ItemGroup>
 
-    <Target Name="CheckDependencyPaths">
+    <Target Name="CheckDependencyPaths" BeforeTargets="CoreCompile">
         <Error Text="Slay the Spire 2 data not found at '$(Sts2DataDir)'. 游戏未安装或 Sts2PathDiscovery.props 未命中，可用 -p:Sts2DataDir= 覆盖。"
-               Condition="'$(Sts2DataDir)' == '' or !Exists('$(Sts2DataDir)')" />
+               Condition="'$(Sts2DataDir)' == '' or !Exists('$(Sts2DataDir)/sts2.dll')" />
     </Target>
 
     <!-- 构建后自动部署到游戏 mods 目录 -->
