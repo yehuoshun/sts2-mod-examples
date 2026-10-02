@@ -24,7 +24,7 @@ SKIP_CLASSES = {
     "Convert", "Activator", "AppDomain", "Assembly", "Type", "Task", "Godot",
     "ResourceLoader", "Color", "Vector2", "Texture2D", "Node", "Node2D",
     "Label", "PackedScene", "Control", "HorizontalAlignment", "Harmony",
-    "AccessTools", "CodeInstruction", "MethodBase",
+    "AccessTools", "CodeInstruction", "MethodBase", "CurrentDomain",
     "AllPossibleOptions", "DynamicVars", "Owner", "Card", "Creature", "CombatState",
     "Amount", "IntValue", "BaseValue", "Tags", "Type",
 }
