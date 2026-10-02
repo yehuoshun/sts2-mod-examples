@@ -25,6 +25,8 @@ SKIP_CLASSES = {
     "ResourceLoader", "Color", "Vector2", "Texture2D", "Node", "Node2D",
     "Label", "PackedScene", "Control", "HorizontalAlignment", "Harmony",
     "AccessTools", "CodeInstruction", "MethodBase",
+    "AllPossibleOptions", "DynamicVars", "Owner", "Card", "Creature", "CombatState",
+    "Amount", "IntValue", "BaseValue", "Tags", "Type",
 }
 
 def load_whitelist(path: Path):

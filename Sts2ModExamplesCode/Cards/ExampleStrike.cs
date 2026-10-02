@@ -26,7 +26,7 @@ public class ExampleStrike : CardModel
     // 打击系标签（被"完美打击"类协同计算）
     public override CardTag[] Tags => new[] { CardTag.Strike };
 
-    public override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target, nameof(cardPlay.Target));
 
