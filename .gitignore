@@ -7,3 +7,4 @@ build/
 local.props
 Directory.Build.props
 *.pck
+deps/
