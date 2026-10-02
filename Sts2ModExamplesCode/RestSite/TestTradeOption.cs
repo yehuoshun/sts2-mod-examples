@@ -2,6 +2,8 @@ using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.RestSite;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Sts2ModExamples.RestSite;
 
@@ -20,7 +22,10 @@ public class TestTradeOption : RestSiteOption
 
     public override async Task<bool> OnSelect()
     {
-        await CreatureCmd.Damage(Owner.Creature, 10);
+        // 真实签名：CreatureCmd.Damage(PlayerChoiceContext, Creature, decimal, ValueProp, Creature?)
+        // （无 2 参重载；非战斗场景用 ThrowingPlayerChoiceContext）
+        await CreatureCmd.Damage(
+            new ThrowingPlayerChoiceContext(), Owner.Creature, 10m, ValueProp.Move, Owner.Creature);
         await PlayerCmd.GainGold(60, Owner);
         return true;
     }

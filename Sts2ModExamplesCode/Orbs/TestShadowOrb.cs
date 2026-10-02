@@ -49,11 +49,14 @@ public class TestShadowOrb : OrbModel
             .Where(e => e.IsHittable).ToList();
         if (opponents.Count == 0) return [];
 
+        // 原生 DarkOrb 同款写法：先 await Damage，再手动构造被击中目标列表返回
+        // （CreatureCmd.Damage 返回 IEnumerable<DamageResult>，不能直接当 Creature 用）
         var targets = target == null
-            ? new List<Creature> { Owner.RunState.Rng.CombatTargets.NextItem(opponents) }
+            ? new List<Creature> { Owner.RunState.Rng.CombatTargets.NextItem(opponents)! }
             : new List<Creature> { target };
 
-        return await CreatureCmd.Damage(
+        await CreatureCmd.Damage(
             choiceContext, targets, value, ValueProp.Unpowered, Owner.Creature);
+        return targets;
     }
 }

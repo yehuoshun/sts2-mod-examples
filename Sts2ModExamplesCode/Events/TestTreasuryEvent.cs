@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Events;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Sts2ModExamples.Events;
 
@@ -32,8 +34,11 @@ public class TestTreasuryEvent : EventModel
 
     private async Task OnPayForRelic()
     {
-        await CreatureCmd.Damage(Owner!.Creature, 15);
-        await RelicCmd.Obtain(Owner, ModelDb.Relic<Relics.ExampleRelic>());
+        // 真实签名：CreatureCmd.Damage(PlayerChoiceContext, Creature, decimal, ValueProp, Creature?)
+        await CreatureCmd.Damage(
+            new ThrowingPlayerChoiceContext(), Owner!.Creature, 15m, ValueProp.Move, Owner.Creature);
+        // 真实签名：RelicCmd.Obtain(RelicModel, Player, int index = -1)（参数顺序是遗物在前）
+        await RelicCmd.Obtain(ModelDb.Relic<Relics.ExampleRelic>(), Owner);
         SetEventFinished(L10NLookup("TEST_TREASURY.pages.INITIAL.options.PAY_RELIC.description"));
     }
 }
