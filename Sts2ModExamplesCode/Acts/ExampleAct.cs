@@ -45,5 +45,5 @@ public class ExampleAct : ActModel
     protected override void ApplyActDiscoveryOrderModifications(UnlockState unlockState) { }
 
     public override MapPointTypeCounts GetMapPointTypes(Rng mapRng) =>
-        new MapPointTypeCounts();
+        new MapPointTypeCounts(0, 0);
 }
