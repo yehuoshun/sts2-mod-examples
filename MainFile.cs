@@ -2,6 +2,7 @@ using System.Reflection;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Modding;
+using MegaCrit.Sts2.Core.Saves.Runs;
 using Sts2ModExamples.Core;
 
 namespace Sts2ModExamples;
@@ -28,6 +29,12 @@ public static class MainFile
         ContentRegistry.RegisterAll(Assembly.GetExecutingAssembly());
         ContentRegistry.Freeze();
         Logger.Info($"[Phase 2] Content registered: {ContentRegistry.RegisteredCount} models");
+
+        // 序列化类型注册（[SavedProperty] 类型必须，漏了读档丢数据）
+        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Modifiers.ExampleModifier));
+
+        // 多人消息处理器（单人/未联网时内部跳过）
+        Multiplayer.ExampleMessageHandler.Register();
 
         // Phase 3: 收尾（本项目无设置界面；有的话在这里注册）
         Logger.Info("Sts2ModExamples initialized");
