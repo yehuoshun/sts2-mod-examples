@@ -1,4 +1,6 @@
 {
   "OPTION_EXAMPLE_REST.name": "示例休息",
-  "OPTION_EXAMPLE_REST.description": "回复10点生命。"
+  "OPTION_EXAMPLE_REST.description": "回复10点生命。",
+  "OPTION_TEST_TRADE.name": "测试交易",
+  "OPTION_TEST_TRADE.description": "失去10点生命，获得60金币。"
 }

@@ -1,4 +1,6 @@
 {
   "OPTION_EXAMPLE_REST.name": "Example Rest",
-  "OPTION_EXAMPLE_REST.description": "Heal 10 HP."
+  "OPTION_EXAMPLE_REST.description": "Heal 10 HP.",
+  "OPTION_TEST_TRADE.name": "Test Trade",
+  "OPTION_TEST_TRADE.description": "Lose 10 HP. Gain 60 gold."
 }
