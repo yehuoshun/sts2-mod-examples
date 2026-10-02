@@ -30,7 +30,7 @@ public class ExampleSelectCard : CardModel
             choiceContext, Owner, this);
         if (card != null)
         {
-            await CardCmd.Upgrade(card);
+            CardCmd.Upgrade(card);   // void，无需 await
         }
     }
 }
