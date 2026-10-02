@@ -30,6 +30,9 @@ public static class MainFile
         ContentRegistry.Freeze();
         Logger.Info($"[Phase 2] Content registered: {ContentRegistry.RegisteredCount} models");
 
+        // 设置：加载持久化配置（缺失时用默认值）
+        Settings.ModConfigStorage.Load();
+
         // 序列化类型注册（[SavedProperty] 类型必须，漏了读档丢数据）
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Modifiers.ExampleModifier));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Cards.ExampleReplayCard));
