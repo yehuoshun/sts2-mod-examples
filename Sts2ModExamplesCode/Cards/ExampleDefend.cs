@@ -18,10 +18,10 @@ namespace Sts2ModExamples.Cards;
 public class ExampleDefend : CardModel
 {
     public ExampleDefend() : base(
-        baseCost: 1,
+        1,
         type: CardType.Skill,
         rarity: CardRarity.Common,
-        target: TargetType.None)
+        targetType: TargetType.None)
     {
     }
 

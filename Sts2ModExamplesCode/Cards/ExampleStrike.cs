@@ -15,11 +15,11 @@ namespace Sts2ModExamples.Cards;
 public class ExampleStrike : CardModel
 {
     public ExampleStrike() : base(
-        baseCost: 1,
+        1,
         type: CardType.Attack,
         rarity: CardRarity.Common,
-        target: TargetType.AnyEnemy,
-        showInCardLibrary: true)
+        targetType: TargetType.AnyEnemy,
+        shouldShowInCardLibrary: true)
     {
     }
 
