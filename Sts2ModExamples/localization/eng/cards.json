@@ -4,5 +4,7 @@
   "EXAMPLE_DEFEND.title": "Example Defend",
   "EXAMPLE_DEFEND.description": "Gain {Block:diff()} [gold]Block[/gold].",
   "EXAMPLE_CALCULATED_CARD.title": "Example Flame",
-  "EXAMPLE_CALCULATED_CARD.description": "Deal {CalculatedDamage:diff()} damage.\n+{ExtraDamage:diff()} damage for each enemy in combat."
+  "EXAMPLE_CALCULATED_CARD.description": "Deal {CalculatedDamage:diff()} damage.\n+{ExtraDamage:diff()} damage for each enemy in combat.",
+  "TEST_SYNERGY_STRIKE.title": "Test Synergy Strike",
+  "TEST_SYNERGY_STRIKE.description": "Deal {Damage:diff()} damage. Apply {TestVigorPower} [gold]Vigor[/gold]."
 }

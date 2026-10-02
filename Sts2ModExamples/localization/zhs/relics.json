@@ -1,5 +1,8 @@
 {
   "EXAMPLE_RELIC.title": "示例胡萝卜",
   "EXAMPLE_RELIC.description": "进入战斗时获得{PlatingPower}层[gold]镀层[/gold]。",
-  "EXAMPLE_RELIC.flavor": "纯原生示例遗物。"
+  "EXAMPLE_RELIC.flavor": "纯原生示例遗物。",
+  "TEST_VIGOR_RELIC.title": "测试活力遗物",
+  "TEST_VIGOR_RELIC.description": "进入战斗时获得{TestVigorPower}层[gold]活力[/gold]。",
+  "TEST_VIGOR_RELIC.flavor": "skill 全面测试遗物。"
 }

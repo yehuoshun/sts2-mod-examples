@@ -1,0 +1,5 @@
+{
+  "TEST_VIGOR_POWER.title": "Test Vigor",
+  "TEST_VIGOR_POWER.description": "Deal +{Amount} damage with attacks.",
+  "TEST_VIGOR_POWER.smartDescription": "Deal +{TestVigorPower} damage with attacks."
+}

@@ -1,4 +1,6 @@
 {
   "EXAMPLE_POTION.title": "Example Strength Potion",
-  "EXAMPLE_POTION.description": "Gain 2 [gold]Strength[/gold]."
+  "EXAMPLE_POTION.description": "Gain 2 [gold]Strength[/gold].",
+  "TEST_VIGOR_POTION.title": "Test Vigor Potion",
+  "TEST_VIGOR_POTION.description": "Gain 3 [gold]Vigor[/gold]."
 }

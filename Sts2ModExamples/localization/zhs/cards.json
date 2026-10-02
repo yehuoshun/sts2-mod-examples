@@ -4,5 +4,7 @@
   "EXAMPLE_DEFEND.title": "示例防御",
   "EXAMPLE_DEFEND.description": "获得{Block:diff()}点[gold]格挡[/gold]。",
   "EXAMPLE_CALCULATED_CARD.title": "示例烈焰",
-  "EXAMPLE_CALCULATED_CARD.description": "造成{CalculatedDamage:diff()}点伤害。\n场上每有1名敌人，伤害+{ExtraDamage:diff()}点。"
+  "EXAMPLE_CALCULATED_CARD.description": "造成{CalculatedDamage:diff()}点伤害。\n场上每有1名敌人，伤害+{ExtraDamage:diff()}点。",
+  "TEST_SYNERGY_STRIKE.title": "测试协同打击",
+  "TEST_SYNERGY_STRIKE.description": "造成{Damage:diff()}点伤害。施加{TestVigorPower}层[gold]活力[/gold]。"
 }
