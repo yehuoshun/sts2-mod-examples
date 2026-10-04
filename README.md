@@ -24,14 +24,14 @@ Slay the Spire 2 **纯原生** Mod 示例仓库 — 把 [slay-the-spire-2-mod-sk
 | 修改器 | `Modifiers/ExampleModifier.cs` `ExampleNeowModifier.cs` | modifier/ |
 | 章节 | `Acts/ExampleAct.cs` | act/ |
 | 宠物 | `Pets/ExamplePet.cs` | pet/ |
-| 自定义资源 | `Resources/ExampleResource.cs` | resource/ |
+| 自定义资源 | `Resources/ExampleResource.cs` `ExampleIconPreloadPatch.cs` | resource/ |
 | 徽章 | `Badges/ExampleBadge.cs` | badge/ |
 | 休息站 | `RestSite/ExampleRestOption.cs` | rest-site/ |
 | 牌堆 | `Piles/ExampleVoidPile.cs` | pile/ |
 | 奖励 | `Rewards/ExampleCardTransformReward.cs` | reward/ |
 | 能量 | `Energy/ExampleEnergyPool.cs` `ICustomEnergyIcon.cs` `CustomEnergyIconPatches.cs` | energy/ |
-| 多人消息 | `Multiplayer/ExampleMessage.cs` `ExampleMessageHandler.cs` `ExampleMessageSender.cs` | multiplayer/ |
-| Harmony 补丁 | `Patches/ExamplePatch.cs` `ExampleCategoryPatch.cs` `ExamplePrefixPatch.cs` | harmony/ |
+| 多人消息 | `Multiplayer/ExampleMessage.cs` `ExampleMessageHandler.cs` `ExampleMessageSender.cs` `ExampleManagedGameAction.cs` `ExampleInteractionGuard.cs` | multiplayer/ |
+| Harmony 补丁 | `Patches/ExamplePatch.cs` `ExampleCategoryPatch.cs` `ExamplePrefixPatch.cs` `ExampleTranspilerPatch.cs` | harmony/ |
 | 注册框架 | `Core/ContentRegistry.cs` `PoolAttributes.cs` `EnumInjector.cs` `ModPatcher.cs` | baselib/ + serialization/ |
 | 设置界面 | `Settings/ModConfig.cs` `ModConfigPatches.cs` `NModConfigSubmenu.cs` | settings/ |
 
