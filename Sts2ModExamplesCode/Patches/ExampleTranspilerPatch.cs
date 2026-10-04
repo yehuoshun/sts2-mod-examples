@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Reflection.Emit;   // OpCodes（Harmony 2.x 的 CodeInstruction.opcode 是 System.Reflection.Emit.OpCode）
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Multiplayer.Serialization;
@@ -9,7 +10,7 @@ namespace Sts2ModExamples.Patches;
 /// <summary>
 /// 示例 Transpiler：用「结构判定」匹配泛型方法调用（跨闭合泛型实例稳定）。
 /// 对照 skill：harmony/harmony-transpiler.md。
-/// 真实 API：CodeInstruction/OpCodes（0Harmony.Cecil）+ MethodInfo.DeclaringType.GetGenericTypeDefinition()。
+/// 真实 API：CodeInstruction/OpCodes（OpCodes 在 System.Reflection.Emit，CodeInstruction 在 HarmonyLib）+ MethodInfo.DeclaringType.GetGenericTypeDefinition()。
 /// ⚠️ 不要用 AccessTools.Method 拿到的 MemberInfo 和 operand 比引用（开放泛型 ≠ 闭合实例）。
 /// </summary>
 [HarmonyPatch(typeof(ModelIdSerializationCache), nameof(ModelIdSerializationCache.Init))]
