@@ -3,7 +3,6 @@ using System.Reflection.Emit;   // OpCodes（Harmony 2.x 的 CodeInstruction.opc
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Multiplayer.Serialization;
-using Mono.Cecil.Cil;   // OpCodes / CodeInstruction 所在命名空间
 
 namespace Sts2ModExamples.Patches;
 
