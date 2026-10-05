@@ -28,6 +28,7 @@ SKIP_CLASSES = {
     "ModConfigStorage", "NModConfigSubmenu", "ExampleModConfig", "SubmenuStack",
     "AllPossibleOptions", "DynamicVars", "Owner", "Card", "Creature", "CombatState",
     "Amount", "IntValue", "BaseValue", "Tags", "Type",
+    "CanonicalVars", "ExtraHoverTips",
 }
 
 def load_whitelist(path: Path):

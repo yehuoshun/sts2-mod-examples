@@ -10,7 +10,7 @@ Slay the Spire 2 **纯原生** Mod 示例仓库 — 把 [slay-the-spire-2-mod-sk
 
 | 模块 | 示例文件 | 对照文档 |
 |------|---------|---------|
-| 卡牌 | `Cards/ExampleStrike.cs` `ExampleDefend.cs` `ExampleCalculatedCard.cs` `ExampleSelectCard.cs` `ExampleFullSelectCard.cs` `ExampleReplayCard.cs` `ExampleMultiplayerOnlyCard.cs` | card/ |
+| 卡牌 | `Cards/ExampleStrike.cs` `ExampleDefend.cs` `ExampleCalculatedCard.cs` `ExampleSelectCard.cs` `ExampleFullSelectCard.cs` `ExampleReplayCard.cs` `ExampleMultiplayerOnlyCard.cs` `ExampleAmplifyCard.cs`（增幅系统）`ExampleHoverTipCard.cs`（悬停提示+容器注入） | card/ |
 | 能力 | `Powers/ExampleBuffPower.cs` `ExampleTempPower.cs` `ExampleModifyPower.cs` | power/ |
 | 遗物 | `Relics/ExampleRelic.cs` `ExampleGoldRelic.cs` | relic/ |
 | 药水 | `Potions/ExamplePotion.cs` | potion/ |
@@ -20,7 +20,7 @@ Slay the Spire 2 **纯原生** Mod 示例仓库 — 把 [slay-the-spire-2-mod-sk
 | 怪物 | `Monsters/ExampleMonster.cs` | monster/ |
 | 遭遇 | `Encounters/ExampleEncounter.cs` | monster/encounter |
 | 充能球 | `Orbs/ExampleOrb.cs` | orb/ |
-| 角色 | `Characters/ExampleCharacter.cs` | character/ |
+| 角色 | `Characters/ExampleCharacter.cs` `ExampleCharacterOverrides.cs`（覆写点+解锁屏蔽+动画状态机） | character/ + monster/ |
 | 修改器 | `Modifiers/ExampleModifier.cs` `ExampleNeowModifier.cs` | modifier/ |
 | 章节 | `Acts/ExampleAct.cs` | act/ |
 | 宠物 | `Pets/ExamplePet.cs` | pet/ |
@@ -31,7 +31,7 @@ Slay the Spire 2 **纯原生** Mod 示例仓库 — 把 [slay-the-spire-2-mod-sk
 | 奖励 | `Rewards/ExampleCardTransformReward.cs` | reward/ |
 | 能量 | `Energy/ExampleEnergyPool.cs` `ICustomEnergyIcon.cs` `CustomEnergyIconPatches.cs` | energy/ |
 | 多人消息 | `Multiplayer/ExampleMessage.cs` `ExampleMessageHandler.cs` `ExampleMessageSender.cs` `ExampleManagedGameAction.cs` `ExampleInteractionGuard.cs` | multiplayer/ |
-| Harmony 补丁 | `Patches/ExamplePatch.cs` `ExampleCategoryPatch.cs` `ExamplePrefixPatch.cs` `ExampleTranspilerPatch.cs` | harmony/ |
+| Harmony 补丁 | `Patches/ExamplePatch.cs` `ExampleCategoryPatch.cs` `ExamplePrefixPatch.cs` `ExampleTranspilerPatch.cs` `ExampleAsyncLocalPatch.cs`（AsyncLocal 异步替换） | harmony/ |
 | 注册框架 | `Core/ContentRegistry.cs` `PoolAttributes.cs` `EnumInjector.cs` `ModPatcher.cs` | baselib/ + serialization/ |
 | 设置界面 | `Settings/ModConfig.cs` `ModConfigPatches.cs` `NModConfigSubmenu.cs` | settings/ |
 

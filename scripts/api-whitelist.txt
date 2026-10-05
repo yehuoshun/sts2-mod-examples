@@ -1197,6 +1197,7 @@ MegaBoneData
 MegaEvent
 MegaEventData
 MegaInput
+MegaLabel
 MegaRandom
 MegaSkeleton
 MegaSkeletonDataResource
@@ -1349,6 +1350,8 @@ MysteryMachine
 MysticLighter
 Myte
 MytesNormal
+NCard
+NHandCardHolder
 NecroMastery
 NecroMasteryPower
 Necrobinder
@@ -2891,6 +2894,8 @@ CharacterModel
 CharacterOrDeprecated
 Characters
 Check
+CheckFifteenBossesDefeatedEpoch
+CheckFifteenElitesDefeatedEpoch
 CheckForCommandLineJoin
 CheckForDefeatedAllEnemiesAchievement
 CheckForEmptyHand
@@ -3914,6 +3919,7 @@ Initialize
 InitializeForTesting
 InitializeFromMessage
 InitializeSeed
+InitializeShared
 InitializeWithOwner
 Initialized
 Inject
@@ -4385,6 +4391,7 @@ NumPlayers
 NumReloads
 NumberOfRuns
 Obtain
+ObtainCharUnlockEpoch
 ObtainDate
 ObtainEpoch
 ObtainEpochOverride
@@ -4934,6 +4941,7 @@ SetState
 SetStunned
 SetTag
 SetTestEnergyCostOverride
+SetTextAutoSize
 SetThisCombat
 SetThisTurn
 SetThisTurnOrUntilPlayed
@@ -5060,6 +5068,7 @@ Speaker
 SpecialCard
 SpeechBubbleColor
 SpineClassName
+SpitMove
 Splitmix64
 SpoilsActIndex
 SpoilsCoord
@@ -5348,6 +5357,7 @@ UpdateAfterCombatWon
 UpdateCardPreview
 UpdateControllerNavEnabled
 UpdateDynamicVarPreview
+UpdateEnergyCostVisuals
 UpdateEntry
 UpdateProgressAfterCombatWon
 UpdateProgressWithRunData
@@ -7790,6 +7800,7 @@ Enthralled.ShouldPlay
 Entomancer.AfterAddedToRoom
 Entomancer.GenerateAnimator
 Entomancer.GenerateMoveStateMachine
+Entomancer.SpitMove
 Entrench.OnPlay
 Entrench.OnUpgrade
 EntropicBrew.OnUse
@@ -9269,6 +9280,7 @@ MegaBone.SetScaleY
 MegaBoneData.SetColor
 MegaEvent.GetData
 MegaEventData.GetEventName
+MegaLabel.SetTextAutoSize
 MegaRandom.Next
 MegaRandom.NextBool
 MegaRandom.NextBytes
@@ -9827,6 +9839,9 @@ Myte.GenerateAnimator
 Myte.GenerateMoveStateMachine
 MytesNormal.GetCameraOffset
 MytesNormal.GetCameraScaling
+NCard.FindOnTable
+NCard.UpdateEnergyCostVisuals
+NHandCardHolder.UpdateCard
 NecroMastery.OnPlay
 NecroMastery.OnUpgrade
 NecroMasteryPower.AfterCurrentHpChanged
@@ -10903,6 +10918,8 @@ ProfileSaveManager.LoadProfile
 ProfileSaveManager.Profile
 ProfileSaveManager.SaveProfile
 ProfileSaveV1ToV2.ApplyMigration
+ProgressSaveManager.CheckFifteenBossesDefeatedEpoch
+ProgressSaveManager.CheckFifteenElitesDefeatedEpoch
 ProgressSaveManager.GenerateUnlockState
 ProgressSaveManager.GetProgressPathForProfile
 ProgressSaveManager.GetRevealableEpochs
@@ -10911,6 +10928,7 @@ ProgressSaveManager.MarkCardAsSeen
 ProgressSaveManager.MarkFtueAsComplete
 ProgressSaveManager.MarkPotionAsSeen
 ProgressSaveManager.MarkRelicAsSeen
+ProgressSaveManager.ObtainCharUnlockEpoch
 ProgressSaveManager.Progress
 ProgressSaveManager.ResetFtues
 ProgressSaveManager.SaveProgress
@@ -11475,6 +11493,7 @@ RunManager.GetRejoinMessage
 RunManager.HasAscension
 RunManager.History
 RunManager.HoveredModelTracker
+RunManager.InitializeShared
 RunManager.InputSynchronizer
 RunManager.Instance
 RunManager.IsAbandoned
