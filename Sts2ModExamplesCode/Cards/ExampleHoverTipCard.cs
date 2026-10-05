@@ -32,13 +32,12 @@ public class ExampleHoverTipCard : CardModel
     }
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        base.ExtraHoverTips.Concat([
-            HoverTipFactory.FromEnchantment<ExampleEnchantment>(),   // 附魔说明
-            HoverTipFactory.FromRelic<ExampleRelic>(),               // 遗物说明
-            HoverTipFactory.FromCard<ExampleStrike>(),               // 关联卡牌
-            HoverTipFactory.FromKeyword(CardKeyword.Innate),       // 关键词（枚举：Exhaust/Ethereal/Innate/Unplayable/Retain/Sly/Eternal）
-            HoverTipFactory.FromPower<ExampleBuffPower>()            // 能力
-        ]);
+        base.ExtraHoverTips
+            .Concat(HoverTipFactory.FromEnchantment<ExampleEnchantment>())  // 附魔说明（返回 IEnumerable）
+            .Concat(HoverTipFactory.FromRelic<ExampleRelic>())             // 遗物说明（返回 IEnumerable）
+            .Append(HoverTipFactory.FromCard<ExampleStrike>())             // 关联卡牌（返回 IHoverTip）
+            .Append(HoverTipFactory.FromKeyword(CardKeyword.Innate))       // 关键词
+            .Append(HoverTipFactory.FromPower<ExampleBuffPower>());        // 能力
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
