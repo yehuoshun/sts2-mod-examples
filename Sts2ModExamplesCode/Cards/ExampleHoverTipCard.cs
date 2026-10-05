@@ -31,7 +31,7 @@ public class ExampleHoverTipCard : CardModel
     {
     }
 
-    public override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         base.ExtraHoverTips.Concat([
             HoverTipFactory.FromEnchantment<ExampleEnchantment>(),   // 附魔说明
             HoverTipFactory.FromRelic<ExampleRelic>(),               // 遗物说明
