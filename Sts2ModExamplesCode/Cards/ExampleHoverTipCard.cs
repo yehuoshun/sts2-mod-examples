@@ -36,7 +36,7 @@ public class ExampleHoverTipCard : CardModel
             HoverTipFactory.FromEnchantment<ExampleEnchantment>(),   // 附魔说明
             HoverTipFactory.FromRelic<ExampleRelic>(),               // 遗物说明
             HoverTipFactory.FromCard<ExampleStrike>(),               // 关联卡牌
-            HoverTipFactory.FromKeyword(CardKeyword.Burn),           // 关键词
+            HoverTipFactory.FromKeyword(CardKeyword.Innate),       // 关键词（枚举：Exhaust/Ethereal/Innate/Unplayable/Retain/Sly/Eternal）
             HoverTipFactory.FromPower<ExampleBuffPower>()            // 能力
         ]);
 

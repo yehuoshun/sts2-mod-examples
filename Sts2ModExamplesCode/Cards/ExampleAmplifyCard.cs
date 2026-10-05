@@ -132,9 +132,9 @@ public static class AmplifyHighlightPatch
     private static void Postfix(NHandCardHolder __instance)
     {
         if (__instance.CardNode?.Model is not AmplifiedCard amp) return;
-        if (amp.Model.CanPlay() != true) return;
+        if (amp.CanPlay() != true) return;
         __instance.CardNode.CardHighlight.Modulate =
-            amp.AmplifiedInPreview ? AmplifiedGlowColor : NCardHighlight.playableColor;
+            amp.AmplifiedInPreview ? AmplifiedCard.AmplifiedGlowColor : NCardHighlight.playableColor;
     }
 }
 
