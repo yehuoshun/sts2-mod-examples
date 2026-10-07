@@ -1,7 +1,7 @@
 using System.Reflection;
 using DetourHook = MonoMod.RuntimeDetour.Hook;
-using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.Screens.CharacterSelect;
 
 namespace Sts2ModExamples.Patches;
 
