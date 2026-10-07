@@ -17,7 +17,7 @@ Slay the Spire 2 **纯原生** Mod 示例仓库 — 把 [slay-the-spire-2-mod-sk
 | 附魔 | `Enchantments/ExampleEnchantment.cs` `ExampleAdvancedEnchantment.cs` `ExampleCompositeEnchantment.cs`（复合容器：JSON 持久化/回调转发/数值链式/叠层） | enchantment/ + enchantment-composite + enchantment-multi |
 | 事件 | `Events/ExampleEvent.cs` `ExampleMultiPageEvent.cs` `ExampleSharedEvent.cs`（共享事件注入/选项链式/锁定） `ExampleLeaveOptionPatch.cs`（全事件离开选项） | event/ + event-shared-inject + event-leave-option |
 | 先古之民 | `Ancients/ExampleAncient.cs` `ExampleMultiDialogueAncient.cs` | event/ancient |
-| 怪物 | `Monsters/ExampleMonster.cs` | monster/ |
+| 怪物 | `Monsters/ExampleMonster.cs` `ExampleMonsterScalingPatch.cs`（难度缩放/编码 power） | monster/ + run-difficulty-scale |
 | 遭遇 | `Encounters/ExampleEncounter.cs` | monster/encounter |
 | 充能球 | `Orbs/ExampleOrb.cs` | orb/ |
 | 角色 | `Characters/ExampleCharacter.cs` `ExampleCharacterOverrides.cs`（覆写点+解锁屏蔽+动画状态机） | character/ + monster/ |
