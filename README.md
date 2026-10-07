@@ -14,7 +14,7 @@ Slay the Spire 2 **纯原生** Mod 示例仓库 — 把 [slay-the-spire-2-mod-sk
 | 能力 | `Powers/ExampleBuffPower.cs` `ExampleTempPower.cs` `ExampleModifyPower.cs` `ExampleTemporaryStatPower.cs`（ITemporaryPower 装饰层+隐藏提示） | power/ + power-signature-and-temp |
 | 遗物 | `Relics/ExampleRelic.cs` `ExampleGoldRelic.cs` | relic/ |
 | 药水 | `Potions/ExamplePotion.cs` | potion/ |
-| 附魔 | `Enchantments/ExampleEnchantment.cs` `ExampleAdvancedEnchantment.cs` | enchantment/ |
+| 附魔 | `Enchantments/ExampleEnchantment.cs` `ExampleAdvancedEnchantment.cs` `ExampleCompositeEnchantment.cs`（复合容器：JSON 持久化/回调转发/数值链式/叠层） | enchantment/ + enchantment-composite + enchantment-multi |
 | 事件 | `Events/ExampleEvent.cs` `ExampleMultiPageEvent.cs` | event/ |
 | 先古之民 | `Ancients/ExampleAncient.cs` `ExampleMultiDialogueAncient.cs` | event/ancient |
 | 怪物 | `Monsters/ExampleMonster.cs` | monster/ |

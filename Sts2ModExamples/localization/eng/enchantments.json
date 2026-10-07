@@ -1,4 +1,8 @@
 {
   "EXAMPLE_ENCHANTMENT.title": "Example Temper",
-  "EXAMPLE_ENCHANTMENT.description": "Can enchant Attack cards: +2 damage."
+  "EXAMPLE_ENCHANTMENT.description": "Can enchant Attack cards: +2 damage.",
+  "EXAMPLE_COMPOSITE_ENCHANTMENT.title": "Composite",
+  "EXAMPLE_COMPOSITE_ENCHANTMENT.description": "Holds multiple enchantments on one card.",
+  "EXAMPLE_LAYERED_ENCHANTMENT.title": "Layered",
+  "EXAMPLE_LAYERED_ENCHANTMENT.description": "+2 damage per stack."
 }
