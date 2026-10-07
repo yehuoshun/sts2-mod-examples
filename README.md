@@ -11,7 +11,7 @@ Slay the Spire 2 **纯原生** Mod 示例仓库 — 把 [slay-the-spire-2-mod-sk
 | 模块 | 示例文件 | 对照文档 |
 |------|---------|---------|
 | 卡牌 | `Cards/ExampleStrike.cs` `ExampleDefend.cs` `ExampleCalculatedCard.cs` `ExampleSelectCard.cs` `ExampleFullSelectCard.cs` `ExampleReplayCard.cs` `ExampleMultiplayerOnlyCard.cs` `ExampleAmplifyCard.cs`（增幅系统）`ExampleHoverTipCard.cs`（悬停提示+容器注入） | card/ |
-| 能力 | `Powers/ExampleBuffPower.cs` `ExampleTempPower.cs` `ExampleModifyPower.cs` | power/ |
+| 能力 | `Powers/ExampleBuffPower.cs` `ExampleTempPower.cs` `ExampleModifyPower.cs` `ExampleTemporaryStatPower.cs`（ITemporaryPower 装饰层+隐藏提示） | power/ + power-signature-and-temp |
 | 遗物 | `Relics/ExampleRelic.cs` `ExampleGoldRelic.cs` | relic/ |
 | 药水 | `Potions/ExamplePotion.cs` | potion/ |
 | 附魔 | `Enchantments/ExampleEnchantment.cs` `ExampleAdvancedEnchantment.cs` | enchantment/ |
@@ -23,7 +23,7 @@ Slay the Spire 2 **纯原生** Mod 示例仓库 — 把 [slay-the-spire-2-mod-sk
 | 角色 | `Characters/ExampleCharacter.cs` `ExampleCharacterOverrides.cs`（覆写点+解锁屏蔽+动画状态机） | character/ + monster/ |
 | 修改器 | `Modifiers/ExampleModifier.cs` `ExampleNeowModifier.cs` | modifier/ |
 | 章节 | `Acts/ExampleAct.cs` | act/ |
-| 宠物 | `Pets/ExamplePet.cs` | pet/ |
+| 宠物 | `Pets/ExamplePet.cs` `ExamplePersistentPet.cs`（位置持久化/视觉复制/战斗内生成） | pet/ + pet-advanced |
 | 自定义资源 | `Resources/ExampleResource.cs` `ExampleIconPreloadPatch.cs` | resource/ |
 | 徽章 | `Badges/ExampleBadge.cs` | badge/ |
 | 休息站 | `RestSite/ExampleRestOption.cs` | rest-site/ |
@@ -31,8 +31,8 @@ Slay the Spire 2 **纯原生** Mod 示例仓库 — 把 [slay-the-spire-2-mod-sk
 | 奖励 | `Rewards/ExampleCardTransformReward.cs` | reward/ |
 | 能量 | `Energy/ExampleEnergyPool.cs` `ICustomEnergyIcon.cs` `CustomEnergyIconPatches.cs` | energy/ |
 | 多人消息 | `Multiplayer/ExampleMessage.cs` `ExampleMessageHandler.cs` `ExampleMessageSender.cs` `ExampleManagedGameAction.cs` `ExampleInteractionGuard.cs` | multiplayer/ |
-| Harmony 补丁 | `Patches/ExamplePatch.cs` `ExampleCategoryPatch.cs` `ExamplePrefixPatch.cs` `ExampleTranspilerPatch.cs` `ExampleAsyncLocalPatch.cs`（AsyncLocal 异步替换） | harmony/ |
-| 注册框架 | `Core/ContentRegistry.cs` `PoolAttributes.cs` `EnumInjector.cs` `ModPatcher.cs` | baselib/ + serialization/ |
+| Harmony 补丁 | `Patches/ExamplePatch.cs` `ExampleCategoryPatch.cs` `ExamplePrefixPatch.cs` `ExampleTranspilerPatch.cs` `ExampleAsyncLocalPatch.cs`（AsyncLocal 异步替换） `ExampleGetterPatch.cs`（资源 getter 覆写） | harmony/ + character-asset-hooks |
+| 注册框架 | `Core/ContentRegistry.cs` `PoolAttributes.cs` `EnumInjector.cs` `ModPatcher.cs` `ExampleManualRegistration.cs`（手动注册+缓存重置+进度跳过） | baselib/ + serialization/ + character-manual-register |
 | 设置界面 | `Settings/ModConfig.cs` `ModConfigPatches.cs` `NModConfigSubmenu.cs` `ModConfigBridgeExample.cs`（ModConfig 第三方框架反射桥接入） `ModsTabInjector.cs`（ModConfig 设置页 Tab 注入机制纯原生转译） | settings/ |
 | Overlay 渲染 | `Overlays/ExampleCursorOverlay.cs`（动态光标：CanvasLayer+Sprite2D+ProcessFrame 信号，单 DLL 源生成器坑） | overlay/ |
 
