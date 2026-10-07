@@ -43,6 +43,8 @@ SKIP_CLASSES = {
     "Flags",
     # SharedEvent 示例：属性访问 LINQ（规则 4 误报）
     "Players",
+    # LeaveOption 示例：MethodInfo 字段变量（规则 4 误报）
+    "SetEventFinishedMethod",
 }
 
 def load_whitelist(path: Path):

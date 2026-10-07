@@ -17943,3 +17943,4 @@ CalculatedBlockVar.Props
 MerchantInventory.CardRemovalEntry
 CardModel.GetStarCostWithModifiers
 ProfileSave.LastProfileId
+NEventRoom.Proceed
