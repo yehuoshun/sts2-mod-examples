@@ -84,8 +84,12 @@ public sealed class ExampleKeystoneRelic : ExampleKeystoneRelicBase
         ValueProp props, Creature target, CardModel? cardSource)
     {
         if (dealer != Owner?.Creature || target.Side != CombatSide.Enemy
-            || result.TotalDamage <= 0 || props.HasFlag(ValueProp.Unpowered)
-            || cardSource?.Owner != Owner || cardSource.TargetType != TargetType.AnyEnemy)
+            || result.TotalDamage <= 0 || props.HasFlag(ValueProp.Unpowered))
+        {
+            return;
+        }
+
+        if (cardSource == null || cardSource.Owner != Owner || cardSource.TargetType != TargetType.AnyEnemy)
         {
             return;
         }

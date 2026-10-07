@@ -12,7 +12,7 @@ Slay the Spire 2 **纯原生** Mod 示例仓库 — 把 [slay-the-spire-2-mod-sk
 |------|---------|---------|
 | 卡牌 | `Cards/ExampleStrike.cs` `ExampleDefend.cs` `ExampleCalculatedCard.cs` `ExampleSelectCard.cs` `ExampleFullSelectCard.cs` `ExampleReplayCard.cs` `ExampleMultiplayerOnlyCard.cs` `ExampleAmplifyCard.cs`（增幅系统）`ExampleHoverTipCard.cs`（悬停提示+容器注入） | card/ |
 | 能力 | `Powers/ExampleBuffPower.cs` `ExampleTempPower.cs` `ExampleModifyPower.cs` `ExampleTemporaryStatPower.cs`（ITemporaryPower 装饰层+隐藏提示） | power/ + power-signature-and-temp |
-| 遗物 | `Relics/ExampleRelic.cs` `ExampleGoldRelic.cs` | relic/ |
+| 遗物 | `Relics/ExampleRelic.cs` `ExampleGoldRelic.cs` `ExampleKeystoneRelic.cs`（计数器/选择流程/TempPower 继承） | relic/ + relic-keystone |
 | 药水 | `Potions/ExamplePotion.cs` | potion/ |
 | 附魔 | `Enchantments/ExampleEnchantment.cs` `ExampleAdvancedEnchantment.cs` `ExampleCompositeEnchantment.cs`（复合容器：JSON 持久化/回调转发/数值链式/叠层） | enchantment/ + enchantment-composite + enchantment-multi |
 | 事件 | `Events/ExampleEvent.cs` `ExampleMultiPageEvent.cs` | event/ |
