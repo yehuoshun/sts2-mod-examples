@@ -21,6 +21,7 @@ SKIP_CLASSES = {
     "Potions", "Enchantments", "Events", "Ancients", "Encounters", "Orbs",
     "Characters", "Modifiers", "RestSite", "Multiplayer", "Patches", "Core",
     "System", "String", "Math", "Mathf", "Random", "Path", "Console", "Enum",
+    "File", "Directory", "ProjectSettings",
     "Convert", "Activator", "AppDomain", "Assembly", "Type", "Task", "Godot",
     "ResourceLoader", "Color", "Vector2", "Texture2D", "Node", "Node2D",
     "Label", "PackedScene", "Control", "HorizontalAlignment", "Harmony",
