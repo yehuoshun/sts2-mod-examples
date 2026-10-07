@@ -1,4 +1,5 @@
 using Godot;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -182,13 +183,13 @@ public sealed class ExampleKeystoneTempStrengthPower : TemporaryStrengthPower
 /// <summary>敌方 debuff 判定辅助（GetTypeForAmount：按层数符号判 Buff/Debuff）。</summary>
 public static class ExampleKeystoneDebuffHelper
 {
-    public static bool IsOwnedEnemyDebuff(PowerModel power, decimal amount, Creature? applier, out Creature? target)
+    public static bool IsOwnedEnemyDebuff(PowerModel power, decimal amount, out Creature? target)
     {
         target = power.Owner;
         return amount != 0m
             && power.GetTypeForAmount(amount) == PowerType.Debuff
             && target?.Side == CombatSide.Enemy
-            && applier == target.CombatState?.LocalPlayer?.Creature
             && power is not ITemporaryPower;
+        // 真实项目再加施放者判定：applier == 遗物Owner?.Creature（Creature.Player 是另一方向 API）
     }
 }
