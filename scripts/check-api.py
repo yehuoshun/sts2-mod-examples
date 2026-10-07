@@ -39,6 +39,8 @@ SKIP_CLASSES = {
     "Root", "CursorOverlayController",
     # Keystone 示例：ConditionalWeakTable 变量名（规则 4 误报）
     "States",
+    # RewardEnchant 示例：枚举变量 HasFlag（规则 4 误报）
+    "Flags",
 }
 
 def load_whitelist(path: Path):
