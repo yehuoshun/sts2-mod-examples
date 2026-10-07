@@ -6,5 +6,7 @@
   "TEST_VIGOR_RELIC.description": "进入战斗时获得{TestVigorPower}层[gold]活力[/gold]。",
   "TEST_VIGOR_RELIC.flavor": "skill 全面测试遗物。",
   "EXAMPLE_KEYSTONE_RELIC.title": "基石符文",
-  "EXAMPLE_KEYSTONE_RELIC.description": "连续 3 次命中同一敌人后，额外造成 5 点伤害。"
+  "EXAMPLE_KEYSTONE_RELIC.description": "连续 3 次命中同一敌人后，额外造成 5 点伤害。",
+  "EXAMPLE_ANCIENT_SWORD_RELIC.title": "古代之剑",
+  "EXAMPLE_ANCIENT_SWORD_RELIC.description": "获得时向牌组底部加入一张卡。"
 }

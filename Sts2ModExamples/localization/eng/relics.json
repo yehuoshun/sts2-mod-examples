@@ -6,5 +6,7 @@
   "TEST_VIGOR_RELIC.description": "On combat start, gain {TestVigorPower} [gold]Vigor[/gold].",
   "TEST_VIGOR_RELIC.flavor": "Skill full-test relic.",
   "EXAMPLE_KEYSTONE_RELIC.title": "Keystone",
-  "EXAMPLE_KEYSTONE_RELIC.description": "Every 3 consecutive hits on the same enemy deal 5 extra damage."
+  "EXAMPLE_KEYSTONE_RELIC.description": "Every 3 consecutive hits on the same enemy deal 5 extra damage.",
+  "EXAMPLE_ANCIENT_SWORD_RELIC.title": "Ancient Sword",
+  "EXAMPLE_ANCIENT_SWORD_RELIC.description": "Adds a card to the bottom of your deck when obtained."
 }
