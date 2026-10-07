@@ -117,7 +117,7 @@ internal static class ExampleFlagConfig
         return flags;
     }
 
-    internal static bool IsRewardEnabled(int enabledFlags, OptionalReward reward)
+    private static bool IsRewardEnabled(int enabledFlags, OptionalReward reward)
     {
         return (enabledFlags & (1 << (int)reward)) != 0;
     }
