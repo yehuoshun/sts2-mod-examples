@@ -31,7 +31,7 @@ Slay the Spire 2 **纯原生** Mod 示例仓库 — 把 [slay-the-spire-2-mod-sk
 | 奖励 | `Rewards/ExampleCardTransformReward.cs` `ExampleRewardEnchant.cs`（卡奖励附魔/Rng 派生） | reward/ + reward-enchant |
 | 能量 | `Energy/ExampleEnergyPool.cs` `ICustomEnergyIcon.cs` `CustomEnergyIconPatches.cs` | energy/ |
 | 多人消息 | `Multiplayer/ExampleMessage.cs` `ExampleMessageHandler.cs` `ExampleMessageSender.cs` `ExampleManagedGameAction.cs` `ExampleInteractionGuard.cs` | multiplayer/ |
-| Harmony 补丁 | `Patches/ExamplePatch.cs` `ExampleCategoryPatch.cs` `ExamplePrefixPatch.cs` `ExampleTranspilerPatch.cs` `ExampleAsyncLocalPatch.cs`（AsyncLocal 异步替换） `ExampleGetterPatch.cs`（资源 getter 覆写） | harmony/ + character-asset-hooks |
+| Harmony 补丁 | `Patches/ExamplePatch.cs` `ExampleCategoryPatch.cs` `ExamplePrefixPatch.cs` `ExampleTranspilerPatch.cs` `ExampleAsyncLocalPatch.cs`（AsyncLocal 异步替换） `ExampleGetterPatch.cs`（资源 getter 覆写） `ExampleNeowExtraOptionPatch.cs`（Prepare 门控/集中反射/AfterObtained 发卡） | harmony/ + character-asset-hooks + harmony-attribute-patcher + relic-ancient-sword |
 | 注册框架 | `Core/ContentRegistry.cs` `PoolAttributes.cs` `EnumInjector.cs` `ModPatcher.cs` `ExampleManualRegistration.cs`（手动注册+缓存重置+进度跳过） | baselib/ + serialization/ + character-manual-register |
 | 设置界面 | `Settings/ModConfig.cs` `ModConfigPatches.cs` `NModConfigSubmenu.cs` `ModConfigBridgeExample.cs`（ModConfig 第三方框架反射桥接入） `ModsTabInjector.cs`（ModConfig 设置页 Tab 注入机制纯原生转译） | settings/ |
 | Overlay 渲染 | `Overlays/ExampleCursorOverlay.cs`（动态光标：CanvasLayer+Sprite2D+ProcessFrame 信号，单 DLL 源生成器坑） | overlay/ |
