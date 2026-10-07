@@ -37,6 +37,8 @@ SKIP_CLASSES = {
     "Input", "CanvasLayer", "Sprite2D", "SceneTree", "Image", "ImageTexture",
     "DisplayServer", "Engine", "GD", "GodotObject", "FileAccess", "Time", "OS",
     "Root", "CursorOverlayController",
+    # Keystone 示例：ConditionalWeakTable 变量名（规则 4 误报）
+    "States",
 }
 
 def load_whitelist(path: Path):
