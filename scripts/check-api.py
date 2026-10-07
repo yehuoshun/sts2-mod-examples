@@ -50,6 +50,8 @@ SKIP_CLASSES = {
     "StateMachineType",
     # PatchFrameworkV2 示例：HarmonyLib 属性访问/类（规则 4 误报）
     "Owners", "PatchProcessor", "Prefixes",
+    # .NET 加密/编码类（规则 4 误报）
+    "SHA256", "UTF8",
 }
 
 def load_whitelist(path: Path):
