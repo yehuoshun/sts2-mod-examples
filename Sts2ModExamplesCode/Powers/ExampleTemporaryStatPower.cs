@@ -75,7 +75,7 @@ public abstract class ExampleTemporaryStatPower<TStatPower> : PowerModel, ITempo
         decimal amount = Amount;
         Flash();
         await PowerCmd.Remove(this);
-        await PowerCmd.Apply<TStatPower>(owner, -amount, owner, null); // 负值抵消真力量
+        await PowerCmd.Apply<TStatPower>(new ThrowingPlayerChoiceContext(), owner, -amount, owner, null); // 负值抵消真力量
     }
 }
 

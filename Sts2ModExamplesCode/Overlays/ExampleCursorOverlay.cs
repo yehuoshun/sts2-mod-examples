@@ -51,7 +51,6 @@ internal static class CursorOverlayController
     private static readonly Vector2 Hotspot = new(29f, 37f);
 
     private static Texture2D[] _frames = Array.Empty<Texture2D>();
-    private static Image? _transparentCursor;
     private static CanvasLayer? _layer;
     private static Sprite2D? _sprite;
     private static SceneTree? _connectedTree;
