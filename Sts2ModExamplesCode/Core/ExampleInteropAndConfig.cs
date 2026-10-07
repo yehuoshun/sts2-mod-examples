@@ -106,7 +106,7 @@ internal static class ExampleFlagConfig
 {
     private enum OptionalReward { A, B, C }
 
-    internal static int GetDefaultEnabledRewardFlags()
+    private static int GetDefaultEnabledRewardFlags()
     {
         int flags = 0;
         foreach (OptionalReward reward in Enum.GetValues<OptionalReward>())
