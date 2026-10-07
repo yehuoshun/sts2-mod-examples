@@ -33,6 +33,9 @@ public static class MainFile
         // 设置：加载持久化配置（缺失时用默认值）
         Settings.ModConfigStorage.Load();
 
+        // 设置页「Mods」标签注入（纯原生转译 ModConfig 机制，零 Harmony）
+        Settings.ModsTabInjector.Initialize();
+
         // 序列化类型注册（[SavedProperty] 类型必须，漏了读档丢数据）
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Modifiers.ExampleModifier));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Cards.ExampleReplayCard));
