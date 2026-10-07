@@ -28,7 +28,7 @@ Slay the Spire 2 **纯原生** Mod 示例仓库 — 把 [slay-the-spire-2-mod-sk
 | 徽章 | `Badges/ExampleBadge.cs` | badge/ |
 | 休息站 | `RestSite/ExampleRestOption.cs` | rest-site/ |
 | 牌堆 | `Piles/ExampleVoidPile.cs` | pile/ |
-| 奖励 | `Rewards/ExampleCardTransformReward.cs` | reward/ |
+| 奖励 | `Rewards/ExampleCardTransformReward.cs` `ExampleRewardEnchant.cs`（卡奖励附魔/Rng 派生） | reward/ + reward-enchant |
 | 能量 | `Energy/ExampleEnergyPool.cs` `ICustomEnergyIcon.cs` `CustomEnergyIconPatches.cs` | energy/ |
 | 多人消息 | `Multiplayer/ExampleMessage.cs` `ExampleMessageHandler.cs` `ExampleMessageSender.cs` `ExampleManagedGameAction.cs` `ExampleInteractionGuard.cs` | multiplayer/ |
 | Harmony 补丁 | `Patches/ExamplePatch.cs` `ExampleCategoryPatch.cs` `ExamplePrefixPatch.cs` `ExampleTranspilerPatch.cs` `ExampleAsyncLocalPatch.cs`（AsyncLocal 异步替换） `ExampleGetterPatch.cs`（资源 getter 覆写） | harmony/ + character-asset-hooks |
