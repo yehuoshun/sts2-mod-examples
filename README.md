@@ -34,6 +34,7 @@ Slay the Spire 2 **纯原生** Mod 示例仓库 — 把 [slay-the-spire-2-mod-sk
 | Harmony 补丁 | `Patches/ExamplePatch.cs` `ExampleCategoryPatch.cs` `ExamplePrefixPatch.cs` `ExampleTranspilerPatch.cs` `ExampleAsyncLocalPatch.cs`（AsyncLocal 异步替换） | harmony/ |
 | 注册框架 | `Core/ContentRegistry.cs` `PoolAttributes.cs` `EnumInjector.cs` `ModPatcher.cs` | baselib/ + serialization/ |
 | 设置界面 | `Settings/ModConfig.cs` `ModConfigPatches.cs` `NModConfigSubmenu.cs` `ModConfigBridgeExample.cs`（ModConfig 第三方框架反射桥接入） `ModsTabInjector.cs`（ModConfig 设置页 Tab 注入机制纯原生转译） | settings/ |
+| Overlay 渲染 | `Overlays/ExampleCursorOverlay.cs`（动态光标：CanvasLayer+Sprite2D+ProcessFrame 信号，单 DLL 源生成器坑） | overlay/ |
 
 ## 编译（本地 Rider / VS）
 

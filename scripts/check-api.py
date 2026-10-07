@@ -33,6 +33,10 @@ SKIP_CLASSES = {
     "AllPossibleOptions", "DynamicVars", "Owner", "Card", "Creature", "CombatState",
     "Amount", "IntValue", "BaseValue", "Tags", "Type",
     "CanonicalVars", "ExtraHoverTips",
+    # Overlay 模块：Godot 内置类（引擎 API，非游戏类型，规则 3 直通）+ 示例内部辅助类/变量
+    "Input", "CanvasLayer", "Sprite2D", "SceneTree", "Image", "ImageTexture",
+    "DisplayServer", "Engine", "GD", "GodotObject", "FileAccess", "Time", "OS",
+    "Root", "CursorOverlayController",
 }
 
 def load_whitelist(path: Path):

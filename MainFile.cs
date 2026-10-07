@@ -43,6 +43,9 @@ public static class MainFile
         // 多人消息处理器（单人/未联网时内部跳过）
         Multiplayer.ExampleMessageHandler.Register();
 
+        // Overlay 示例：动态光标（单 DLL 布局下自定义 Node 回调失效 → 内置节点 + ProcessFrame 信号方案）
+        Overlays.ExampleCursorOverlay.EnsureStarted("MainFile.Initialize");
+
         // Phase 3: 收尾（本项目无设置界面；有的话在这里注册）
         Logger.Info("Sts2ModExamples initialized");
     }
