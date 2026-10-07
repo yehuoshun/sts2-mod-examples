@@ -32,6 +32,8 @@
         <Publicize Include="sts2" IncludeVirtualMembers="false" IncludeCompilerGeneratedMembers="false" />
         <PackageReference Include="Krafs.Publicizer" Version="2.3.0" PrivateAssets="All" />
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*" />
+        <PackageReference Include="MonoMod.RuntimeDetour" Version="25.0.2" />
+
         <AdditionalFiles Include="Sts2ModExamples/localization/**/*.json" />
     </ItemGroup>
 
