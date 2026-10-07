@@ -45,6 +45,8 @@ SKIP_CLASSES = {
     "Players",
     # LeaveOption 示例：MethodInfo 字段变量（规则 4 误报）
     "SetEventFinishedMethod",
+    # AsyncTranspiler 示例：属性访问（规则 4 误报）
+    "StateMachineType",
 }
 
 def load_whitelist(path: Path):
