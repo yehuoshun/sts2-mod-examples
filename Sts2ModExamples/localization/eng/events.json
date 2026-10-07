@@ -2,5 +2,20 @@
   "EXAMPLE_EVENT.title": "Example Event",
   "EXAMPLE_EVENT.pages.INITIAL.description": "A merchant approaches you.\n\"Take some gold and go.\"",
   "EXAMPLE_EVENT.pages.INITIAL.options.TAKE_GOLD.title": "Take 50 Gold",
-  "EXAMPLE_EVENT.pages.INITIAL.options.TAKE_GOLD.description": "Gain [gold]50[/gold] gold."
+  "EXAMPLE_EVENT.pages.INITIAL.options.TAKE_GOLD.description": "Gain [gold]50[/gold] gold.",
+  "EXAMPLE_SHARED_EVENT.title": "Shared Event Example",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.description": "A hooded merchant offers three ways to obtain a relic.",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.GREET.title": "Greet",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.GREET.description": "Gain [gold]20[/gold] gold.",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.GREAT_REWARD.title": "Great Reward",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.GREAT_REWARD.description": "Lose [gold]250[/gold] gold: gain a relic and 6 Max HP.",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.GREAT_REWARD_LOCKED.title": "Great Reward",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.GREAT_REWARD_LOCKED.description": "Requires 250 gold.",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.RISKY_REWARD.title": "Grab and Run",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.RISKY_REWARD.description": "Lose 28 HP: gain a relic.",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.RISKY_REWARD_LOCKED.title": "Grab and Run",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.RISKY_REWARD_LOCKED.description": "Requires 29+ HP.",
+  "EXAMPLE_SHARED_EVENT.doneGreet": "You exchange pleasantries.",
+  "EXAMPLE_SHARED_EVENT.doneGreatReward": "A fair trade.",
+  "EXAMPLE_SHARED_EVENT.doneRiskyReward": "You grab the relic and run."
 }

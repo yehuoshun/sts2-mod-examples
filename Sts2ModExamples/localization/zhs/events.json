@@ -2,5 +2,20 @@
   "EXAMPLE_EVENT.title": "示例事件",
   "EXAMPLE_EVENT.pages.INITIAL.description": "一位商人向你走来。\n\"拿点金币走吧。\"",
   "EXAMPLE_EVENT.pages.INITIAL.options.TAKE_GOLD.title": "拿走50金币",
-  "EXAMPLE_EVENT.pages.INITIAL.options.TAKE_GOLD.description": "获得[gold]50[/gold]金币。"
+  "EXAMPLE_EVENT.pages.INITIAL.options.TAKE_GOLD.description": "获得[gold]50[/gold]金币。",
+  "EXAMPLE_SHARED_EVENT.title": "共享事件示例",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.description": "一名兜帽商贩提供三种获得遗物的方式。",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.GREET.title": "问候",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.GREET.description": "获得 [gold]20[/gold] 金币。",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.GREAT_REWARD.title": "公平交易",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.GREAT_REWARD.description": "失去 [gold]250[/gold] 金币：获得遗物与 6 点最大生命。",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.GREAT_REWARD_LOCKED.title": "公平交易",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.GREAT_REWARD_LOCKED.description": "需要 250 金币。",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.RISKY_REWARD.title": "抢了就跑",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.RISKY_REWARD.description": "失去 28 点生命：获得遗物。",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.RISKY_REWARD_LOCKED.title": "抢了就跑",
+  "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.RISKY_REWARD_LOCKED.description": "需要 29 点以上生命。",
+  "EXAMPLE_SHARED_EVENT.doneGreet": "你与商贩寒暄了几句。",
+  "EXAMPLE_SHARED_EVENT.doneGreatReward": "公平的交易。",
+  "EXAMPLE_SHARED_EVENT.doneRiskyReward": "你抢走遗物夺路而逃。"
 }

@@ -41,6 +41,8 @@ SKIP_CLASSES = {
     "States",
     # RewardEnchant 示例：枚举变量 HasFlag（规则 4 误报）
     "Flags",
+    # SharedEvent 示例：属性访问 LINQ（规则 4 误报）
+    "Players",
 }
 
 def load_whitelist(path: Path):
