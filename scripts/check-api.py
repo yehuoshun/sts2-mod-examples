@@ -52,6 +52,8 @@ SKIP_CLASSES = {
     "Owners", "PatchProcessor", "Prefixes",
     # .NET 加密/编码类（规则 4 误报）
     "SHA256", "UTF8",
+    # VariantLoader 示例：.NET 运行时类（规则 4 误报）
+    "AssemblyLoadContext",
 }
 
 def load_whitelist(path: Path):
