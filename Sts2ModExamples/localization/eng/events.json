@@ -17,5 +17,7 @@
   "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.RISKY_REWARD_LOCKED.description": "Requires 29+ HP.",
   "EXAMPLE_SHARED_EVENT.doneGreet": "You exchange pleasantries.",
   "EXAMPLE_SHARED_EVENT.doneGreatReward": "A fair trade.",
-  "EXAMPLE_SHARED_EVENT.doneRiskyReward": "You grab the relic and run."
+  "EXAMPLE_SHARED_EVENT.doneRiskyReward": "You grab the relic and run.",
+  "EXAMPLE_LEAVE.leave.title": "Leave",
+  "EXAMPLE_LEAVE.leave.description": "Depart without taking any action."
 }

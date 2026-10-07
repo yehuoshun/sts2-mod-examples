@@ -17,5 +17,7 @@
   "EXAMPLE_SHARED_EVENT.pages.INITIAL.options.RISKY_REWARD_LOCKED.description": "需要 29 点以上生命。",
   "EXAMPLE_SHARED_EVENT.doneGreet": "你与商贩寒暄了几句。",
   "EXAMPLE_SHARED_EVENT.doneGreatReward": "公平的交易。",
-  "EXAMPLE_SHARED_EVENT.doneRiskyReward": "你抢走遗物夺路而逃。"
+  "EXAMPLE_SHARED_EVENT.doneRiskyReward": "你抢走遗物夺路而逃。",
+  "EXAMPLE_LEAVE.leave.title": "离开",
+  "EXAMPLE_LEAVE.leave.description": "不采取任何行动，直接离开。"
 }
