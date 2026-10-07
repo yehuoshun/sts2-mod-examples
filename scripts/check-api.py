@@ -48,6 +48,8 @@ SKIP_CLASSES = {
     "SetEventFinishedMethod",
     # AsyncTranspiler 示例：属性访问（规则 4 误报）
     "StateMachineType",
+    # PatchFrameworkV2 示例：HarmonyLib 属性访问/类（规则 4 误报）
+    "Owners", "PatchProcessor", "Prefixes",
 }
 
 def load_whitelist(path: Path):
