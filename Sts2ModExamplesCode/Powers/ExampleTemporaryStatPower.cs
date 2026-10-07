@@ -42,8 +42,8 @@ public abstract class ExampleTemporaryStatPower<TStatPower> : PowerModel, ITempo
             return;
         }
 
-        // 同步到真实力量（silent 避免双 UI 闪烁）
-        await PowerCmd.Apply<TStatPower>(target, amount, applier, cardSource, silent: true);
+        // 同步到真实力量（silent 避免双 UI 闪烁；PowerCmd.Apply 第一参必是 PlayerChoiceContext）
+        await PowerCmd.Apply<TStatPower>(new ThrowingPlayerChoiceContext(), target, amount, applier, cardSource, silent: true);
     }
 
     public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power,
@@ -60,7 +60,7 @@ public abstract class ExampleTemporaryStatPower<TStatPower> : PowerModel, ITempo
             return;
         }
 
-        await PowerCmd.Apply<TStatPower>(Owner, amount, applier, cardSource, silent: true);
+        await PowerCmd.Apply<TStatPower>(new ThrowingPlayerChoiceContext(), Owner, amount, applier, cardSource, silent: true);
     }
 
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
@@ -118,7 +118,7 @@ public sealed class ExampleTemporaryStrengthCard : CardModel
 
     protected override Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        return PowerCmd.Apply<ExampleTemporaryStrengthPower>(Owner.Creature,
+        return PowerCmd.Apply<ExampleTemporaryStrengthPower>(new ThrowingPlayerChoiceContext(), Owner.Creature,
             DynamicVars["TemporaryStrength"].BaseValue, Owner.Creature, this);
     }
 }
