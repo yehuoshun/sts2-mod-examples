@@ -10,8 +10,8 @@ Slay the Spire 2 **纯原生** Mod 示例仓库 — 把 [slay-the-spire-2-mod-sk
 
 | 模块 | 示例文件 | 对照文档 |
 |------|---------|---------|
-| 卡牌 | `Cards/ExampleStrike.cs` `ExampleDefend.cs` `ExampleCalculatedCard.cs` `ExampleSelectCard.cs` `ExampleFullSelectCard.cs` `ExampleReplayCard.cs` `ExampleMultiplayerOnlyCard.cs` `ExampleAmplifyCard.cs`（增幅系统）`ExampleHoverTipCard.cs`（悬停提示+容器注入） | card/ |
-| 能力 | `Powers/ExampleBuffPower.cs` `ExampleTempPower.cs` `ExampleModifyPower.cs` `ExampleTemporaryStatPower.cs`（ITemporaryPower 装饰层+隐藏提示） | power/ + power-signature-and-temp |
+| 卡牌 | `Cards/ExampleStrike.cs` `ExampleDefend.cs` `ExampleCalculatedCard.cs` `ExampleSelectCard.cs` `ExampleFullSelectCard.cs` `ExampleReplayCard.cs` `ExampleMultiplayerOnlyCard.cs` `ExampleAmplifyCard.cs`（增幅系统）`ExampleTokenAmplifyCard.cs`（Token 增幅/动态增幅伤害）`ExampleTeamCardGrantCard.cs`（伤害结果汇总+队友发卡）`ExampleAnySelectExhaustCard.cs`（任意数量选择+多玩家烧牌）`ExampleHoverTipCard.cs`（悬停提示+容器注入） | card/ |
+| 能力 | `Powers/ExampleBuffPower.cs` `ExampleTempPower.cs`（含回合结束直接移除变体 ExampleInstantEndTempPower）`ExampleModifyPower.cs` `ExampleTemporaryStatPower.cs`（ITemporaryPower 装饰层+隐藏提示）`ExampleSpreadPower.cs`（增益扩散器） | power/ + power-signature-and-temp |
 | 遗物 | `Relics/ExampleRelic.cs` `ExampleGoldRelic.cs` `ExampleKeystoneRelic.cs`（计数器/选择流程/TempPower 继承） | relic/ + relic-keystone |
 | 药水 | `Potions/ExamplePotion.cs` | potion/ |
 | 附魔 | `Enchantments/ExampleEnchantment.cs` `ExampleAdvancedEnchantment.cs` `ExampleCompositeEnchantment.cs`（复合容器：JSON 持久化/回调转发/数值链式/叠层） | enchantment/ + enchantment-composite + enchantment-multi |

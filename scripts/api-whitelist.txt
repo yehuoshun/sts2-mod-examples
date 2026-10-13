@@ -6887,6 +6887,10 @@ ListStringSerializeHandler
 EmotionalAwareness
 GenerateChecksum
 Select
+SelectMany
+Sum
+Where
+Distinct
 RefreshEnabled
 RewardClaimedEventHandler
 UpdateCursor

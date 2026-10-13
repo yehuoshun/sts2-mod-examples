@@ -28,3 +28,24 @@ public class ExampleTempPower : PowerModel
         }
     }
 }
+
+/// <summary>
+/// 示例回合结束直接移除能力：本回合结束整个消失（无逐层递减过程）。
+/// 对照 skill：power/power-advanced.md（变体：回合结束直接移除，MarisaMod PrismaticNebularPower）。
+/// 真实 API：AfterSideTurnEnd + PowerCmd.Remove(this)；判断己方回合用 side == Owner.Side。
+/// </summary>
+public class ExampleInstantEndTempPower : PowerModel
+{
+    public override PowerType Type => PowerType.Buff;
+    public override PowerStackType StackType => PowerStackType.Counter;
+
+    public override async Task AfterSideTurnEnd(
+        PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
+    {
+        if (side == Owner.Side)   // 只在自己的回合结束时移除
+        {
+            Flash();
+            await PowerCmd.Remove(this);
+        }
+    }
+}
