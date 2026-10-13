@@ -39,6 +39,9 @@ public static class MainFile
         // 序列化类型注册（[SavedProperty] 类型必须，漏了读档丢数据）
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Modifiers.ExampleModifier));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Cards.ExampleReplayCard));
+        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Cards.TestStoredPowerCard));
+        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Pets.ExamplePersistentPet));
+        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Enchantments.ExampleCompositeEnchantment));
 
         // 多人消息处理器（单人/未联网时内部跳过）
         Multiplayer.ExampleMessageHandler.Register();
