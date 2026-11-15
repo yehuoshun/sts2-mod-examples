@@ -33,7 +33,9 @@ public class TestShadowOrb : OrbModel
 
     public override async Task Passive(PlayerChoiceContext choiceContext, Creature? target)
     {
-        Trigger();
+        // 0.113：OrbModel.Trigger() 没了，拆成 TriggerPassive(ctx, target)（= 播被动音效 + 调 Passive）与
+        // protected PlayPassiveSfx()。这里已经在 Passive 内部，再调 TriggerPassive 会递归，所以只播音效。
+        PlayPassiveSfx();
         await DealDamage(PassiveVal, target, choiceContext);
     }
 

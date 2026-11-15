@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Characters;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Models;
@@ -51,7 +52,8 @@ public class ExampleOverridesCharacter : CharacterModel
     public override Color EnergyLabelOutlineColor => new Color("000A7D");
 
     // 动画状态机：动画名必须匹配 Spine 骨架实际动画
-    public override CreatureAnimator GenerateAnimator(MegaSprite controller)
+    // 0.113：CharacterModel.GenerateAnimator 多一个 Creature 参数（MonsterModel 仍是单参）
+    public override CreatureAnimator GenerateAnimator(MegaSprite controller, Creature creature)
     {
         var idle = new AnimState("idle_loop", isLooping: true);
         var attack = new AnimState("attack");

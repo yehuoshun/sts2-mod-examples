@@ -50,11 +50,8 @@ public sealed class ExampleAttackScalePower : PowerModel
 
     protected override bool IsVisibleInternal => false;
 
-#if STS2_108_OR_NEWER
+    // 0.113：钩子多一个 CardPlay? 参数（0.107.1 及更早没有）
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
-#else
-    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
-#endif
     {
         if (dealer != Owner || target == null || !target.IsPlayer)
         {

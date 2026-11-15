@@ -36,12 +36,11 @@ public static class MainFile
         // 设置页「Mods」标签注入（纯原生转译 ModConfig 机制，零 Harmony）
         Settings.ModsTabInjector.Initialize();
 
-        // 序列化类型注册（[SavedProperty] 类型必须，漏了读档丢数据）
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Modifiers.ExampleModifier));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Cards.ExampleReplayCard));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Cards.TestStoredPowerCard));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Pets.ExamplePersistentPet));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Enchantments.ExampleCompositeEnchantment));
+        // 序列化类型注册（[SavedProperty]）：0.113 起游戏自己扫 mod 类型，无需手动注入。
+        // 旧版（≤0.107）必须逐个 SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(X))，漏一个读档就丢数据；
+        // 0.113 把该缓存并入 ModelIdSerializationCache.CachePropertiesForType(type, ...) 且转为私有，mod 侧没有公开入口。
+        // 本项目带 [SavedProperty] 的类型：Modifiers.ExampleModifier、Cards.ExampleReplayCard、Cards.TestStoredPowerCard、
+        // Pets.ExamplePersistentPet、Enchantments.ExampleCompositeEnchantment。
 
         // 多人消息处理器（单人/未联网时内部跳过）
         Multiplayer.ExampleMessageHandler.Register();

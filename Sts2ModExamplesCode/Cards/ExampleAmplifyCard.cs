@@ -40,7 +40,7 @@ public class ExampleAmplifyCard : AmplifiedCard
         var damage = !AmplifiedInPlay
             ? DynamicVars.Damage.BaseValue
             : DynamicVars["DamageAmplified"].BaseValue;
-        await DamageCmd.Attack(damage).FromCard(this).Targeting(cardPlay.Target)
+        await DamageCmd.Attack(damage).FromCard(this, cardPlay).Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
 

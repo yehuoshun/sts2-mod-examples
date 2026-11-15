@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  DEPS_VERSION: "0.107.1"
+  DEPS_VERSION: "0.113"
 
 jobs:
   build:

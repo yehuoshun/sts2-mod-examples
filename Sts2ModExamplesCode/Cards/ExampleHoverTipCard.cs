@@ -42,7 +42,7 @@ public class ExampleHoverTipCard : CardModel
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target, nameof(cardPlay.Target));
-        await DamageCmd.Attack(5).FromCard(this).Targeting(cardPlay.Target)
+        await DamageCmd.Attack(5).FromCard(this, cardPlay).Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
 

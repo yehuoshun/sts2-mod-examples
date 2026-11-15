@@ -65,7 +65,7 @@ public class ExamplePersistentPet : MonsterModel
 
     public override int MaxInitialHp => 1;
 
-    public override bool IsHealthBarVisible => false;
+    public override bool IsInteractable => false;   // 0.113：IsHealthBarVisible 已移除，改用 IsInteractable
 
     public override bool HasDeathSfx => false;
 

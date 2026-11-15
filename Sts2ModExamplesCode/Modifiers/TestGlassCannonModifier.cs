@@ -1,3 +1,4 @@
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
@@ -19,7 +20,7 @@ public class TestGlassCannonModifier : ModifierModel
 
     // 玩家受到的攻击伤害 ×1.5
     public override decimal ModifyDamageMultiplicative(
-        Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+        Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (target?.Player != null && props.IsPoweredAttack())
             return amount * 1.5m;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -10,7 +11,7 @@ namespace Sts2ModExamples.Powers;
 /// <summary>
 /// 【skill 全面测试】自定义能力：力量式伤害修正（持有者造成攻击伤害 +Amount）。
 /// 对照 skill：power/power-core.md（模板/Type/StackType）+ power-callbacks.md（真实回调）。
-/// 真实 API：ModifyDamageAdditive(Creature?, decimal, ValueProp, Creature?, CardModel?) @ AbstractModel.cs，
+/// 真实 API：ModifyDamageAdditive(Creature?, decimal, ValueProp, Creature?, CardModel?, CardPlay?) @ AbstractModel.cs，
 /// ValuePropExtensions.IsPoweredAttack()。写法与原生 StrengthPower 一致。
 /// </summary>
 public class TestVigorPower : PowerModel
@@ -25,7 +26,7 @@ public class TestVigorPower : PowerModel
     }
 
     public override decimal ModifyDamageAdditive(
-        Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+        Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (Owner != dealer) return 0m;
         return props.IsPoweredAttack() ? Amount : 0m;

@@ -1,3 +1,4 @@
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Models;
@@ -8,7 +9,7 @@ namespace Sts2ModExamples.Powers;
 /// <summary>
 /// 示例伤害修正能力：持有者攻击伤害 +3。
 /// 对照 skill：power/power-effects.md（Modify* 钩子）。
-/// 真实 API：ModifyDamageAdditive(Creature?, decimal, ValueProp, Creature?, CardModel?)。
+/// 真实 API：ModifyDamageAdditive(Creature?, decimal, ValueProp, Creature?, CardModel?, CardPlay?)。
 /// </summary>
 public class ExampleModifyPower : PowerModel
 {
@@ -16,7 +17,7 @@ public class ExampleModifyPower : PowerModel
     public override PowerStackType StackType => PowerStackType.Counter;
 
     public override decimal ModifyDamageAdditive(
-        Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+        Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (dealer == Owner)
             return amount + 3m * Amount;

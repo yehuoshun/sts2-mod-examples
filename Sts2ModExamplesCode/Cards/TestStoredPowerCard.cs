@@ -9,8 +9,9 @@ namespace Sts2ModExamples.Cards;
 /// <summary>
 /// 【skill 全面测试】测试序列化：带 [SavedProperty] 的卡牌（层数跨战斗/存档保存）。
 /// 对照 skill：serialization/serialization.md + serialization-register.md。
-/// 真实 API：[SavedProperty]（MegaCrit.Sts2.Core.Saves.Runs）标记属性，
-/// 注册必须调 SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(T))（硬规则 5）。
+/// 真实 API：[SavedProperty]（MegaCrit.Sts2.Core.Saves.Runs）标记属性。
+/// 0.113 起游戏自动扫描 mod 类型，无需手动注册；旧版（≤0.107）必须逐个
+/// SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(T))（硬规则 5）。
 /// </summary>
 [CardPool(typeof(MegaCrit.Sts2.Core.Models.CardPools.ColorlessCardPool))]
 public class TestStoredPowerCard : CardModel
@@ -26,7 +27,7 @@ public class TestStoredPowerCard : CardModel
     {
     }
 
-    // 存档属性：层数跨存档保存（硬规则 5：必须 InjectTypeIntoCache）
+    // 存档属性：层数跨存档保存（0.113 自动扫描；旧版需 InjectTypeIntoCache）
     [SavedProperty]
     public int StoredStacks
     {

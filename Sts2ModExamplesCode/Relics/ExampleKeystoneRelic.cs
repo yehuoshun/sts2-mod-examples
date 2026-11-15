@@ -107,7 +107,8 @@ public sealed class ExampleKeystoneRelic : ExampleKeystoneRelicBase
         ResetTracking();
         Flash([target]);
         await CreatureCmd.Damage(choiceContext, target, BaseDamage,
-            ValueProp.Unpowered | ValueProp.SkipHurtAnim, Owner!.Creature, cardSource: null);
+            // 0.113：带 cardSource 的 Damage 重载多出必填的 cardPlay（这里不是打牌触发的伤害，传 null）
+            ValueProp.Unpowered | ValueProp.SkipHurtAnim, Owner!.Creature, cardSource: null, cardPlay: null);
     }
 
     public override Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)

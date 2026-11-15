@@ -80,8 +80,10 @@ public static class ExampleRewardEnchantPatch
     /// <summary>商店确定性派生 Rng（不消费公共 Shops 源）。</summary>
     public static Rng CreateShopRng(Player player, CardModel card)
     {
-        int counter = player.PlayerRng.Shops.Counter;
-        uint shopSeed = unchecked(player.PlayerRng.Seed + (uint)StringHelper.GetDeterministicHashCode("shops"));
+        // 0.113：Rng.Counter 属性取消（只剩私有 _counter 字段），改从 ToSerializable().counter 读；
+        // PlayerRngSet.Seed 与 Rng 的种子参数都是 ulong（原来 uint）。
+        int counter = player.PlayerRng.Shops.ToSerializable().counter;
+        ulong shopSeed = unchecked(player.PlayerRng.Seed + (ulong)StringHelper.GetDeterministicHashCode("shops"));
         string derivedName = $"ExampleRewardEnchant.shop.{counter}.{card.Id.Entry}.{card.CurrentUpgradeLevel}";
         return new Rng(shopSeed, derivedName);
     }

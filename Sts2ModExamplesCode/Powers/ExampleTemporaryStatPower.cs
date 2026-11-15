@@ -96,12 +96,9 @@ public sealed class ExampleHiddenTipPower : PowerModel
 
     protected override System.Collections.Generic.IEnumerable<MegaCrit.Sts2.Core.HoverTips.IHoverTip> ExtraHoverTips =>
     [
-        new MegaCrit.Sts2.Core.HoverTips.HoverTip(Title, Description.GetFormattedText())
-        {
-            Id = Id.ToString(),
-            IsDebuff = Type == PowerType.Debuff,
-            IsSmart = false,
-        }
+        // 0.113：HoverTip.Id / IsDebuff / IsSmart 变成只读计算属性，不能再在对象初始化器里赋值。
+        // 改用 (PowerModel power, string description, bool isSmart) 构造：Id / IsDebuff 由 CanonicalModel（本 power）推导。
+        new MegaCrit.Sts2.Core.HoverTips.HoverTip(this, Description.GetFormattedText(), isSmart: false)
     ];
 }
 
