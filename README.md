@@ -10,7 +10,7 @@ Slay the Spire 2 **纯原生** Mod 示例仓库 — 把 [slay-the-spire-2-mod-sk
 
 | 模块 | 示例文件 | 对照文档 |
 |------|---------|---------|
-| 卡牌 | `Cards/ExampleStrike.cs` `ExampleDefend.cs` `ExampleCalculatedCard.cs` `ExampleSelectCard.cs` `ExampleFullSelectCard.cs` `ExampleReplayCard.cs` `ExampleMultiplayerOnlyCard.cs` `ExampleAmplifyCard.cs`（增幅系统）`ExampleTokenAmplifyCard.cs`（Token 增幅/动态增幅伤害）`ExampleTeamCardGrantCard.cs`（伤害结果汇总+队友发卡）`ExampleAnySelectExhaustCard.cs`（任意数量选择+多玩家烧牌）`ExampleHoverTipCard.cs`（悬停提示+容器注入）`ExampleDeferredSelectExhaustCard.cs`（卡只挂 Power，延迟到回合末选牌） | card/ |
+| 卡牌 | `Cards/ExampleStrike.cs` `ExampleDefend.cs` `ExampleCalculatedCard.cs` `ExampleSelectCard.cs` `ExampleFullSelectCard.cs` `ExampleReplayCard.cs` `ExampleMultiplayerOnlyCard.cs` `ExampleAmplifyCard.cs`（增幅系统）`ExampleTokenAmplifyCard.cs`（Token 增幅/动态增幅伤害）`ExampleTeamCardGrantCard.cs`（伤害结果汇总+队友发卡）`ExampleAnySelectExhaustCard.cs`（任意数量选择+多玩家烧牌）`ExampleHoverTipCard.cs`（悬停提示+容器注入）`ExampleDeferredSelectExhaustCard.cs`（卡只挂 Power，延迟到回合末选牌）`ExampleHistoryScaledCard.cs`（历史动态倍率：按本场生成的灼伤数缩放伤害） | card/ + card-variables |
 | 能力 | `Powers/ExampleBuffPower.cs` `ExampleTempPower.cs`（含回合结束直接移除变体 ExampleInstantEndTempPower）`ExampleModifyPower.cs` `ExampleTemporaryStatPower.cs`（ITemporaryPower 装饰层+隐藏提示）`ExampleSpreadPower.cs`（增益扩散器，含 `target == Owner` 守卫）`ExampleDeferredSelectPower.cs`（`BeforeSideTurnEnd` 选牌结算、`AfterSideTurnEnd` 自移除） | power/ + power-signature-and-temp + power-deferred-turnend |
 | 遗物 | `Relics/ExampleRelic.cs` `ExampleGoldRelic.cs` `ExampleKeystoneRelic.cs`（计数器/选择流程/TempPower 继承） | relic/ + relic-keystone |
 | 药水 | `Potions/ExamplePotion.cs` | potion/ |
