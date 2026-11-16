@@ -8,9 +8,9 @@ using MegaCrit.Sts2.Core.Models.Powers;
 namespace Sts2ModExamples.Powers;
 
 /// <summary>
-/// 示例增益扩散器：持有者给其他人施加 ExampleModifyPower 时，自动扩散给全队玩家队友，
+/// 示例增益扩散器：持有者给<b>自己</b>施加 ExampleModifyPower 时，自动扩散给全队玩家队友，
 /// 扩散量 = 原始量 + 本层数 - 1（层数越高队友吃得越多）。
-/// 对照 skill：power/power-advanced.md（增益扩散器，MarisaMod PrismaticNebularPower）。
+/// 对照 skill：power/power-advanced.md（增益扩散器，MarisaMod PrismaticNebularPower；2026-11-14 补 target == Owner 守卫）。
 /// 真实 API：ModifyPowerAmountGivenAdditive(PowerModel, Creature, decimal, Creature?, CardModel?)；
 /// 同步回调里发起异步命令用 new ThrowingPlayerChoiceContext()。
 /// </summary>
@@ -22,8 +22,8 @@ public class ExampleSpreadPower : PowerModel
     public override decimal ModifyPowerAmountGivenAdditive(
         PowerModel power, Creature giver, decimal amount, Creature? target, CardModel? cardSource)
     {
-        // 拦截点：自己（giver == Owner）给他人上目标 Buff 且量为正
-        if (power is ExampleModifyPower && giver == Owner && amount > 0)
+        // 拦截点：自己（giver == Owner）给自己（target == Owner）上目标 Buff 且量为正
+        if (power is ExampleModifyPower && giver == Owner && target == Owner && amount > 0)
         {
             var teammates = CombatState.GetTeammatesOf(Owner)
                 .Where(c => c is { IsAlive: true, IsPlayer: true } && c != Owner);
