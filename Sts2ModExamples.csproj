@@ -13,6 +13,8 @@
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
         <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
         <NoWarn>$(NoWarn);MSB3270;CS0436;CS9057;STS001;STS003</NoWarn>
+        <!-- 打开 MonoMod detour 对照示例：dotnet build -p:MONOMOD_DETOUR=true（默认关闭，保持纯原生） -->
+        <DefineConstants Condition="'$(MONOMOD_DETOUR)' == 'true'">$(DefineConstants);MONOMOD_DETOUR</DefineConstants>
     </PropertyGroup>
 
     <ItemGroup Condition="Exists('$(Sts2DataDir)')">
@@ -32,9 +34,16 @@
         <Publicize Include="sts2" IncludeVirtualMembers="false" IncludeCompilerGeneratedMembers="false" />
         <PackageReference Include="Krafs.Publicizer" Version="2.3.0" PrivateAssets="All" />
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*" />
-        <PackageReference Include="MonoMod.RuntimeDetour" Version="25.0.2" />
 
         <AdditionalFiles Include="Sts2ModExamples/localization/**/*.json" />
+    </ItemGroup>
+
+    <!-- 可选：MonoMod detour 对照示例（Harmony 之外第二种运行时改写方案）。
+         默认不引入，保持「纯原生 = 0Harmony.dll + sts2.dll」；
+         开启：dotnet build -c Release -p:MONOMOD_DETOUR=true
+         PrivateAssets=All：编译期可解析类型，但不进产物（运行时要另带 MonoMod 依赖包）。 -->
+    <ItemGroup Condition="'$(MONOMOD_DETOUR)' == 'true'">
+        <PackageReference Include="MonoMod.RuntimeDetour" Version="25.0.2" PrivateAssets="All" />
     </ItemGroup>
 
     <Target Name="CheckDependencyPaths" BeforeTargets="CoreCompile">

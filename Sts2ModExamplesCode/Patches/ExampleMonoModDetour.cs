@@ -1,3 +1,7 @@
+// 本文件默认不参与编译：MonoMod 不是游戏自带的库，引入它会破坏「纯原生 = 0Harmony.dll + sts2.dll」的定位。
+// 想编译/运行这个对照示例：dotnet build -c Release -p:MONOMOD_DETOUR=true
+// 运行时还要把 MonoMod.RuntimeDetour.dll 及其依赖随包带上并预加载（见 skill：harmony/harmony-detour-monomod.md）。
+#if MONOMOD_DETOUR
 using System.Reflection;
 using DetourHook = MonoMod.RuntimeDetour.Hook;
 using MegaCrit.Sts2.Core.Models;
@@ -67,3 +71,5 @@ public static class ExampleMonoModStaticDetour
         return orig(runState, player, card, originalOdds);
     }
 }
+
+#endif
