@@ -56,6 +56,23 @@ SKIP_CLASSES = {
     "AssemblyLoadContext",
 }
 
+# AutoAnthony（第三方工坊 mod）的公开 API 面。这批类不在 sts2-res 白名单里
+# （白名单只从游戏源码生成），但它们的签名由 Cardgen/ 的真编译 + skill 仓库的
+# scripts/cardgen-probe 反射快照双重锁死，这里认作已知外部 API，避免误报「疑似虚构」。
+# 清单与 references/cardgen/cardgen-api.md 的 20 面版本矩阵 + CardNameGenerator 逐条对应。
+EXTERNAL_CLASSES = {
+    # ChaosCardGenerator
+    "ComponentApi", "ComponentPackageApi", "ComponentLocalizationApi",
+    "ComponentValuationApi", "ComponentKeywordApi", "CardTinkeringApi",
+    "NativeCardDecompositionApi", "CardNameGenerator",
+    # AutoAnthony
+    "ExternalComponentCharacterApi", "ComponentPresentationApi", "ComponentRuntimeApi",
+    "ComponentKeywordRuntimeApi", "ComponentRunSettingsApi",
+    "ComponentGenerationProgressApi", "ComponentTriggerApi", "ComponentSurpriseApi",
+    "AutoAnthonySettingsApi", "AutoAnthonyEditorApi", "AutoAnthonyFreeformCardApi",
+    "AutoAnthonyNativeCardApi", "AutoAnthonyBalanceAdjustmentApi",
+}
+
 def load_whitelist(path: Path):
     text = path.read_text(encoding="utf-8")
     classes = set(text.split("## METHODS")[0].split("## CLASSES")[1].strip().splitlines())
@@ -98,7 +115,9 @@ def main():
     errors = []
     for head, loc in calls:
         cls, meth = head.split(".")
-        if cls in classes:
+        if cls in EXTERNAL_CLASSES:
+            print(f"  ✅ {head} ({loc}) [AutoAnthony 外部 API，由真编译+反射快照锁定]")
+        elif cls in classes:
             if head in pairs:
                 print(f"  ✅ {head} ({loc})")
             else:
