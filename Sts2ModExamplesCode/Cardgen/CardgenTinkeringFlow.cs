@@ -28,8 +28,12 @@ public static class CardgenTinkeringFlow
     public static string Run(int seed = 20261120)
     {
         if (!IsAvailable) return "[cardgen] AutoAnthony 未加载，跳过卡牌编辑示例。";
+        // ApiVersion 在 DLL 里是 const，版本与文档一致时下面的分支会被编译器折成不可达（CS0162）；
+        // 版本不一致时它反而是活的。保留这条守卫——文档写错版本的那天，它才会真的拦住你。
+#pragma warning disable CS0162
         if (CardTinkeringApi.ApiVersion != RequiredApiVersion)
             return $"[cardgen] CardTinkeringApi v{CardTinkeringApi.ApiVersion} != v{RequiredApiVersion}，跳过。";
+#pragma warning restore CS0162
 
         var report = new StringBuilder();
         report.AppendLine($"[cardgen] CardTinkeringApi v{CardTinkeringApi.ApiVersion}");

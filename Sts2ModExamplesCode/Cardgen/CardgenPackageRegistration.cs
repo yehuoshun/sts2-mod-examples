@@ -144,7 +144,7 @@ public static class CardgenPackageRegistration
         Console.WriteLine($"enabled={snapshot.Enabled} ultimateChaos={snapshot.UltimateChaos} surprise={snapshot.AnySurpriseMode} addGenerated={snapshot.AddGeneratedCards}");
 
         AutoAnthonyBalanceAdjustmentApi.RegisterDefinitionChangedListener(model =>
-            Console.WriteLine($"definition changed: {(model.HasEditorIdentity ? model.EditorIdentity.Name?.Chinese : "<pool level>")}"));
+            Console.WriteLine($"definition changed: {(model.HasEditorIdentity ? model.EditorIdentity?.Name?.Chinese : "<pool level>")}"));
     }
 
     /// <summary>自定义关键词的升级规则：满足上下文才允许挂载。</summary>
