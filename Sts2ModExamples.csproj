@@ -28,6 +28,37 @@
         </Reference>
     </ItemGroup>
 
+    <!-- 可选：AutoAnthony（第三方工坊 mod，不在 CI 依赖里）。
+         装了 → Cardgen/ 参与编译，编译期锁死卡片编辑/组件注册 API 签名；
+         没装 → 整个 Cardgen/ 目录 Compile Remove，CI 照常全绿。
+         默认从 Steam 注册表推工坊目录，也可 -p:AutoAnthonyDir=... 或设环境变量覆盖。 -->
+    <PropertyGroup>
+        <!-- 工坊目录 = <Steam 库根>/workshop/content/2868840/<publishedfileid>。
+             库根优先从实际找到游戏的那条路径反推（Sts2Path 可能是注册表路径而非默认 Steam 库），
+             再退回 SteamLibraryPath / AutoSteamPath。 -->
+        <AutoAnthonyDir Condition="'$(AutoAnthonyDir)' == '' and Exists('$(Sts2Path)/../../workshop/content/2868840/3786611028/AutoAnthony.dll')">$(Sts2Path)/../../workshop/content/2868840/3786611028</AutoAnthonyDir>
+        <AutoAnthonyDir Condition="'$(AutoAnthonyDir)' == '' and Exists('$(SteamLibraryPath)/workshop/content/2868840/3786611028/AutoAnthony.dll')">$(SteamLibraryPath)/workshop/content/2868840/3786611028</AutoAnthonyDir>
+        <AutoAnthonyDir Condition="'$(AutoAnthonyDir)' == '' and Exists('$(AutoSteamPath)/workshop/content/2868840/3786611028/AutoAnthony.dll')">$(AutoSteamPath)/workshop/content/2868840/3786611028</AutoAnthonyDir>
+    </PropertyGroup>
+
+    <ItemGroup Condition="Exists('$(AutoAnthonyDir)/AutoAnthony.dll')">
+        <Reference Include="AutoAnthony">
+            <HintPath>$(AutoAnthonyDir)/AutoAnthony.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup Condition="!Exists('$(AutoAnthonyDir)/AutoAnthony.dll')">
+        <Compile Remove="Sts2ModExamplesCode/Cardgen/**/*.cs" />
+    </ItemGroup>
+
+    <Target Name="ReportAutoAnthonyAvailability" BeforeTargets="CoreCompile">
+        <Message Condition="Exists('$(AutoAnthonyDir)/AutoAnthony.dll')" Importance="high"
+                 Text="AutoAnthony.dll 已找到（$(AutoAnthonyDir)）→ Cardgen 示例参与编译" />
+        <Message Condition="!Exists('$(AutoAnthonyDir)/AutoAnthony.dll')" Importance="high"
+                 Text="AutoAnthony.dll 未找到 → 跳过 Cardgen 编译（CI 与未装 mod 的机器走这条）" />
+    </Target>
+
     <!-- 可选构建期工具（非运行时依赖）：
          官方静态分析器 ModAnalyzers + Publicizer（publicize sts2 非 virtual 成员） -->
     <ItemGroup Condition="'$(PublicizeSts)' != 'false'">

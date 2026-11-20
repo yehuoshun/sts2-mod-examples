@@ -35,6 +35,9 @@ Slay the Spire 2 **纯原生** Mod 示例仓库 — 把 [slay-the-spire-2-mod-sk
 | 注册框架 | `Core/ContentRegistry.cs` `PoolAttributes.cs` `EnumInjector.cs` `ModPatcher.cs` `ExampleManualRegistration.cs`（手动注册+缓存重置+进度跳过） `ExampleInteropAndConfig.cs`（Interop/JSON 配置/位标志） `ExampleVariantLoader.cs`（多版本变体 loader） | baselib/ + serialization/ + character-manual-register + run-interop-config + loader-multiversion |
 | 设置界面 | `Settings/ModConfig.cs` `ModConfigPatches.cs` `NModConfigSubmenu.cs` `ModConfigBridgeExample.cs`（ModConfig 第三方框架反射桥接入） `ModsTabInjector.cs`（ModConfig 设置页 Tab 注入机制纯原生转译） | settings/ |
 | Overlay 渲染 | `Overlays/ExampleCursorOverlay.cs`（动态光标：CanvasLayer+Sprite2D+ProcessFrame 信号，单 DLL 源生成器坑） | overlay/ |
+| Cardgen（条件编译） | `Cardgen/CardgenTinkeringFlow.cs` `Cardgen/CardgenPackageRegistration.cs` | cardgen/cardgen-editor + cardgen-api |
+
+> **Cardgen 一行是条件编译的**：它的 API 全在第三方工坊 mod AutoAnthony 里，CI 拿不到。`Sts2ModExamples.csproj` 会从 Steam 库根反推 `workshop/content/2868840/3786611028`，找到 `AutoAnthony.dll` 才把 `Cardgen/` 编进去（`Private=false`，不进产物），找不到就 `Compile Remove` 整个目录，CI 照常全绿。构建日志会打印 `AutoAnthony.dll 已找到 / 未找到` 两条之一 —— **先看这一行，才知道这次构建到底验没验 cardgen**。
 
 ## 编译（本地 Rider / VS）
 
@@ -44,6 +47,8 @@ Slay the Spire 2 **纯原生** Mod 示例仓库 — 把 [slay-the-spire-2-mod-sk
 4. 资源包（`.pck`）：有 Godot 资源后 `dotnet publish` 导出，或用 PckPacker
 
 > ✅ CI 已支持真编译：`sts2.dll`/`0Harmony.dll` 从 yehuoshun/STS2-ShunMod 的 deps release（tag=游戏版本）拉取，`dotnet build -p:Sts2DataDir` 完整编译。每次 push 自动跑：编译 + ModAnalyzers + API 白名单 + 本地化 JSON 校验。
+
+> ⚠️ CI 验不到 cardgen（AutoAnthony 是工坊 mod，CI 无处分发）。cardgen 的验收分两条：本机装了 mod → `dotnet build` 真编译；任何机器 → skill 仓库的 `scripts/cardgen-probe`（反射 dump 与快照 diff）。详见 skill LEARN.md「测试与验证流程」的 cardgen 段落。
 
 ## 测试流程
 
